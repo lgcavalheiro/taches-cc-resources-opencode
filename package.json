@@ -1,0 +1,25 @@
+{
+  "name": "opencode-taches",
+  "version": "1.0.0",
+  "description": "opencode plugin with commands, skills, and agents for agentic development workflows",
+  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": [
+    "src/",
+    "resources/"
+  ],
+  "peerDependencies": {
+    "@opencode-ai/plugin": ">=1.0.0"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "ai",
+    "coding",
+    "agent",
+    "skills"
+  ],
+  "license": "MIT"
+}
