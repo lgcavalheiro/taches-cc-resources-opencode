@@ -2,12 +2,12 @@
   "name": "opencode-taches",
   "version": "1.0.0",
   "description": "opencode plugin with commands, skills, and agents for agentic development workflows",
-  "main": "src/index.ts",
+  "main": "plugin.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./plugin.ts"
   },
   "files": [
-    "src/",
+    "plugin.ts",
     "resources/"
   ],
   "peerDependencies": {

@@ -48,7 +48,7 @@ async function installResources(targetDir: string, resourcesDir: string): Promis
 }
 
 export const TachesPlugin: Plugin = async ({ directory, client }) => {
-  const resourcesDir = join(import.meta.dir, "..", "resources")
+  const resourcesDir = join(import.meta.dir, "resources")
   const opencodeDir = join(directory, ".opencode")
 
   try {
