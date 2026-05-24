@@ -533,7 +533,7 @@ Typical development cycle without opening Xcode:
 
 ```bash
 # 1. Edit code (in your editor of choice)
-# Claude Code, vim, VS Code, etc.
+# Opencode, vim, VS Code, etc.
 
 # 2. Build
 xcodebuild -project MyApp.xcodeproj -scheme MyApp -configuration Debug -derivedDataPath ./build build 2>&1 | grep -E "error:|warning:" || echo "Build succeeded"

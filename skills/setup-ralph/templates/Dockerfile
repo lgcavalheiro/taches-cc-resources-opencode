@@ -1,12 +1,12 @@
 # Ralph Wiggum Loop - Docker Container
-# Runs Claude Code CLI in isolated environment as non-root user
+# Runs Opencode CLI in isolated environment as non-root user
 
 FROM node:22-slim
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-# Install Claude Code CLI globally
+# Install Opencode CLI globally
 RUN npm install -g @anthropic-ai/claude-code
 
 # Create non-root user for safety

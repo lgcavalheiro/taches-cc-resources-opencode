@@ -1,6 +1,6 @@
 # Hook Types and Events
 
-Complete reference for all Claude Code hook events.
+Complete reference for all Opencode hook events.
 
 ## PreToolUse
 
@@ -453,7 +453,7 @@ Complete reference for all Claude Code hook events.
         "hooks": [
           {
             "type": "command",
-            "command": "osascript -e 'display notification \"Claude needs input\" with title \"Claude Code\"'"
+            "command": "osascript -e 'display notification \"Claude needs input\" with title \"Opencode\"'"
           }
         ]
       }

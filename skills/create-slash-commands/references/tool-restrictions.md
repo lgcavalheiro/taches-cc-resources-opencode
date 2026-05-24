@@ -39,7 +39,7 @@ allowed-tools: SequentialThinking
 
 ## Bash Command Restrictions
 
-**Source**: Official Claude Code documentation
+**Source**: Official Opencode documentation
 
 Restrict bash commands to specific patterns using wildcards.
 
@@ -162,7 +162,7 @@ Update documentation in @ $ARGUMENTS
 
 ### Example 1: Git Commit Command
 
-**Source**: Official Claude Code documentation
+**Source**: Official Opencode documentation
 
 ```markdown
 ---

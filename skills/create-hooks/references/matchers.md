@@ -404,7 +404,7 @@ Matches: Everything except `Read`
 ```
 Matches: `Bash`, `bash`, `BASH`
 
-(Note: Claude Code tools are PascalCase by convention, so this is rarely needed)
+(Note: Opencode tools are PascalCase by convention, so this is rarely needed)
 
 ---
 
@@ -446,7 +446,7 @@ Do this:
 
 ## Tool Name Reference
 
-Common Claude Code tool names:
+Common Opencode tool names:
 - `Bash`
 - `BashOutput`
 - `KillShell`

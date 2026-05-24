@@ -1,10 +1,10 @@
 ---
 name: create-slash-commands
-description: Expert guidance for creating Claude Code slash commands. Use when working with slash commands, creating custom commands, understanding command structure, or learning YAML configuration.
+description: Expert guidance for creating Opencode slash commands. Use when working with slash commands, creating custom commands, understanding command structure, or learning YAML configuration.
 ---
 
 <objective>
-Create effective slash commands for Claude Code that enable users to trigger reusable prompts with `/command-name` syntax. Slash commands expand as prompts in the current conversation, allowing teams to standardize workflows and operations. This skill teaches you to structure commands with XML tags, YAML frontmatter, dynamic context loading, and intelligent argument handling.
+Create effective slash commands for Opencode that enable users to trigger reusable prompts with `/command-name` syntax. Slash commands expand as prompts in the current conversation, allowing teams to standardize workflows and operations. This skill teaches you to structure commands with XML tags, YAML frontmatter, dynamic context loading, and intelligent argument handling.
 </objective>
 
 <quick_start>

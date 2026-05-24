@@ -48,7 +48,7 @@ env | grep -E "^[A-Z_]+=" | cut -d= -f1 | sort
 - Config file syntax error
 </causes>
 <solution>
-Check Claude Code config:
+Check Opencode config:
 ```bash
 cat ~/.config/opencode/settings.json | jq '.mcpServers'
 ```
@@ -104,7 +104,7 @@ claude mcp add --transport stdio {name} -- /absolute/path/to/uv ...
 echo 'export VAR_NAME="value"' >> ~/.zshrc
 source ~/.zshrc
 ```
-3. Restart Claude Code to pick up new variables
+3. Restart Opencode to pick up new variables
 </solution>
 </issue>
 

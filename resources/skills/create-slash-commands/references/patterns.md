@@ -1,12 +1,12 @@
 # Command Patterns Reference
 
-Verified patterns from official Claude Code documentation.
+Verified patterns from official Opencode documentation.
 
 ## Git Workflow Patterns
 
 ### Pattern: Commit with Full Context
 
-**Source**: Official Claude Code documentation
+**Source**: Official Opencode documentation
 
 ```markdown
 ---
@@ -75,7 +75,7 @@ Current changes: ! `git status`
 
 ### Pattern: Performance Optimization
 
-**Source**: Official Claude Code documentation
+**Source**: Official Opencode documentation
 
 **File**: `.claude/commands/optimize.md`
 ```markdown
@@ -174,7 +174,7 @@ References the specified file.
 
 ### Pattern: Fix Issue with Workflow
 
-**Source**: Official Claude Code documentation
+**Source**: Official Opencode documentation
 
 ```markdown
 ---
@@ -244,7 +244,7 @@ Uses positional arguments for structured input.
 
 ### Pattern: File Reference
 
-**Source**: Official Claude Code documentation
+**Source**: Official Opencode documentation
 
 ```markdown
 ---

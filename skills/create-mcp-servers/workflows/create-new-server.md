@@ -226,7 +226,7 @@ Validation: [references/validation-checkpoints.md#env-vars](../references/valida
 </step>
 
 <step name="6_claude_code_install">
-<title>Install in Claude Code</title>
+<title>Install in Opencode</title>
 
 Read: [references/creation-workflow.md](../references/creation-workflow.md) → Step 5
 

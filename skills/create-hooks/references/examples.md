@@ -13,7 +13,7 @@ Real-world hook configurations ready to use.
         "hooks": [
           {
             "type": "command",
-            "command": "osascript -e 'display notification \"Claude needs your input\" with title \"Claude Code\" sound name \"Glass\"'"
+            "command": "osascript -e 'display notification \"Claude needs your input\" with title \"Opencode\" sound name \"Glass\"'"
           }
         ]
       }
@@ -31,7 +31,7 @@ Real-world hook configurations ready to use.
         "hooks": [
           {
             "type": "command",
-            "command": "notify-send 'Claude Code' 'Awaiting your input' --urgency=normal"
+            "command": "notify-send 'Opencode' 'Awaiting your input' --urgency=normal"
           }
         ]
       }

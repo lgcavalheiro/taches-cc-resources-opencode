@@ -3,7 +3,7 @@
 <overview>
 This workflow creates a complete, working MCP server from scratch with zero manual configuration. Use this when Lex wants to build a new MCP server - it handles everything automatically.
 
-**End state**: Server running in both Claude Code and Claude Desktop with all credentials configured.
+**End state**: Server running in both Opencode and Claude Desktop with all credentials configured.
 </overview>
 
 <workflow>
@@ -17,7 +17,7 @@ Copy this and check off items as you complete them:
 - [ ] Step 2: Create project structure
 - [ ] Step 3: Generate server code
 - [ ] Step 4: Configure environment variables
-- [ ] Step 5: Install in Claude Code
+- [ ] Step 5: Install in Opencode
 - [ ] Step 6: Install in Claude Desktop
 - [ ] Step 7: Test and verify
 ```
@@ -557,7 +557,7 @@ done
 
 ---
 
-## Step 5: Install in Claude Code
+## Step 5: Install in Opencode
 
 ```bash
 # Get absolute path to uv (for Python) or node (for TypeScript)
@@ -667,7 +667,7 @@ node build/index.js
 # Press Ctrl+C to exit
 ```
 
-**Verify in Claude Code:**
+**Verify in Opencode:**
 ```bash
 # Check server appears
 claude mcp list
@@ -733,8 +733,8 @@ done
 
 **Step 5 validation:**
 ```bash
-# Check Claude Code installation
-claude mcp list | grep -q "{server-name}" && echo "✓ Installed in Claude Code" || echo "✗ Not installed"
+# Check Opencode installation
+claude mcp list | grep -q "{server-name}" && echo "✓ Installed in Opencode" || echo "✗ Not installed"
 ```
 
 **Step 6 validation:**
@@ -776,7 +776,7 @@ echo 'export ENV_VAR_NAME="value"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
-**"Server not appearing in Claude Code":**
+**"Server not appearing in Opencode":**
 ```bash
 # Check installation
 claude mcp list

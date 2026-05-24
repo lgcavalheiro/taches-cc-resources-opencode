@@ -1,11 +1,11 @@
 # Auto-Installation for MCP Servers
 
-Complete guide for automatically installing MCP servers in both Claude Code and Claude Desktop with safe credential management.
+Complete guide for automatically installing MCP servers in both Opencode and Claude Desktop with safe credential management.
 
 ## Overview
 
 When you build an MCP server, you want it instantly available in both:
-- **Claude Code** - For development and coding workflows
+- **Opencode** - For development and coding workflows
 - **Claude Desktop** - For conversational usage
 
 This guide provides scripts and patterns for zero-friction installation.
@@ -13,7 +13,7 @@ This guide provides scripts and patterns for zero-friction installation.
 ## The Problem
 
 Manual MCP installation requires:
-1. Adding to Claude Code via CLI (`claude mcp add`)
+1. Adding to Opencode via CLI (`claude mcp add`)
 2. Editing Claude Desktop config JSON manually
 3. Copying credentials to multiple places
 4. Restarting both applications
@@ -26,7 +26,7 @@ This is tedious and error-prone.
 A manual configuration approach with secure patterns:
 1. Store credentials in `~/.mcp_secrets` with `chmod 600`
 2. Use variable expansion (`${VAR}`) in all configs
-3. Install in Claude Code (user scope)
+3. Install in Opencode (user scope)
 4. Manually update Claude Desktop config with variable references
 5. Never write hardcoded secrets to configuration files
 
@@ -62,13 +62,13 @@ Reload:
 source ~/.zshrc  # or ~/.bashrc
 ```
 
-### Step 2: Install in Claude Code
+### Step 2: Install in Opencode
 
 ```bash
 # Source secrets
 source ~/.mcp_secrets
 
-# Install with actual values (Claude Code stores them securely)
+# Install with actual values (Opencode stores them securely)
 claude mcp add --transport stdio meta-ads \
   --scope user \
   --env META_ACCESS_TOKEN=${META_ACCESS_TOKEN} \
@@ -76,7 +76,7 @@ claude mcp add --transport stdio meta-ads \
   -- uv --directory ~/Developer/mcp/meta-ads-mcp run python -m src.server
 ```
 
-**Note:** When using `claude mcp add`, you pass actual values. Claude Code stores them securely in `~/.config/opencode/opencode.json` and references them correctly.
+**Note:** When using `claude mcp add`, you pass actual values. Opencode stores them securely in `~/.config/opencode/opencode.json` and references them correctly.
 
 ### Step 3: Configure Claude Desktop
 
@@ -103,7 +103,7 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
 ### Step 4: Verify Installation
 
 ```bash
-# Check Claude Code
+# Check Opencode
 claude mcp list
 
 # Test environment variables
@@ -121,7 +121,7 @@ Restart Claude Desktop and test.
 export STRIPE_API_KEY="sk_live_abc123"
 ```
 
-**2. Install in Claude Code:**
+**2. Install in Opencode:**
 ```bash
 source ~/.mcp_secrets
 claude mcp add --transport stdio stripe \
@@ -156,7 +156,7 @@ export GHL_CLIENT_API_TOKEN="pit_client_xyz"
 export GHL_CLIENT_LOCATION_ID="loc_client_456"
 ```
 
-**2. Install in Claude Code:**
+**2. Install in Opencode:**
 ```bash
 source ~/.mcp_secrets
 claude mcp add --transport stdio ghl \
@@ -236,7 +236,7 @@ fi
 
 ## Verification
 
-### Check Claude Code Installation
+### Check Opencode Installation
 ```bash
 # List all installed servers
 claude mcp list
@@ -268,7 +268,7 @@ Ensure configs show `${VAR}` syntax, not actual values.
 
 ### Test in Conversation
 
-**Claude Code:**
+**Opencode:**
 - Open any project
 - Ask: "List available MCP servers"
 - Ask: "What Meta Ads operations are available?"
@@ -285,7 +285,7 @@ When creating MCP servers, include installation in your development process:
 ### Final Installation Steps
 
 1. **Add credentials to `~/.mcp_secrets`**
-2. **Install in Claude Code** using `claude mcp add` with actual values
+2. **Install in Opencode** using `claude mcp add` with actual values
 3. **Configure Claude Desktop** with variable expansion (`${VAR}`)
 4. **Verify with security checklist**
 5. **Test in both environments**
@@ -295,14 +295,14 @@ This ensures secure, consistent installation across all clients.
 ## Troubleshooting
 
 **"Command not found: claude"**
-- Install Claude Code CLI: Open Claude Code → run `/install-cli`
+- Install Opencode CLI: Open Opencode → run `/install-cli`
 
 **"jq: command not found"**
 ```bash
 brew install jq  # macOS
 ```
 
-**"Server not appearing in Claude Code"**
+**"Server not appearing in Opencode"**
 ```bash
 # Check installation
 claude mcp list
@@ -326,7 +326,7 @@ claude mcp remove <server-name>
 
 ### Installation Pattern
 
-**Claude Code:**
+**Opencode:**
 ```bash
 claude mcp add --transport stdio my-ts-server \
   --scope user \

@@ -546,7 +546,7 @@ cd "$cwd" || exit 1
 
 **Step 1**: Enable debug mode
 ```bash
-claude --debug
+claude debug
 ```
 
 **Step 2**: Look for hook execution logs

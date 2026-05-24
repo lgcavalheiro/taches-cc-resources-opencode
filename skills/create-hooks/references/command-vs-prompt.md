@@ -91,7 +91,7 @@ echo '{"decision": "approve", "reason": "File exists"}'
 ```json
 {
   "type": "command",
-  "command": "osascript -e 'display notification \"Claude needs input\" with title \"Claude Code\"'"
+  "command": "osascript -e 'display notification \"Claude needs input\" with title \"Opencode\"'"
 }
 ```
 

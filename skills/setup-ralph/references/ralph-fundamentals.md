@@ -11,7 +11,7 @@ Ralph is an autonomous AI coding methodology created by Geoffrey Huntley that we
 while :; do cat PROMPT.md | claude ; done
 ```
 
-The loop continuously feeds a prompt file to Claude Code CLI. The agent completes one task, updates the implementation plan on disk, then exits. The loop restarts immediately with fresh context. Changes are NOT auto-committed (only commit when explicitly requested).
+The loop continuously feeds a prompt file to Opencode CLI. The agent completes one task, updates the implementation plan on disk, then exits. The loop restarts immediately with fresh context. Changes are NOT auto-committed (only commit when explicitly requested).
 
 **The core insight:** Ralph solves context accumulation by starting each iteration with fresh context. This is "deterministically bad in an undeterministic world"—embracing the chaos rather than fighting it.
 </what_is_ralph>

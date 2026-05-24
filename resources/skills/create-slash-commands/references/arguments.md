@@ -4,7 +4,7 @@ Official documentation examples for using arguments in slash commands.
 
 ## $ARGUMENTS - All Arguments
 
-**Source**: Official Claude Code documentation
+**Source**: Official Opencode documentation
 
 Captures all arguments as a single concatenated string.
 
@@ -55,7 +55,7 @@ Fix issue #$ARGUMENTS. Follow these steps:
 
 ## Positional Arguments - $1, $2, $3
 
-**Source**: Official Claude Code documentation
+**Source**: Official Opencode documentation
 
 Access specific arguments individually.
 

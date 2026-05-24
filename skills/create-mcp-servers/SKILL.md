@@ -4,7 +4,7 @@ description: Create Model Context Protocol (MCP) servers that expose tools, reso
 ---
 
 <objective>
-MCP servers extend Claude's capabilities by exposing tools, resources, and prompts. This skill guides creation of production-ready MCP servers with API integrations, OAuth authentication, response optimization, and proper installation in Claude Code and Claude Desktop.
+MCP servers extend Claude's capabilities by exposing tools, resources, and prompts. This skill guides creation of production-ready MCP servers with API integrations, OAuth authentication, response optimization, and proper installation in Opencode and Claude Desktop.
 </objective>
 
 <essential_principles>
@@ -154,7 +154,7 @@ Full troubleshooting: workflows/troubleshoot-server.md
 
 <success_criteria>
 A production-ready MCP server has:
-- Valid configuration in Claude Code (`claude mcp list` shows ✓ Connected)
+- Valid configuration in Opencode (`claude mcp list` shows ✓ Connected)
 - Valid configuration in Claude Desktop config
 - Environment variables set securely in ~/.zshrc
 - Architecture matches operation count

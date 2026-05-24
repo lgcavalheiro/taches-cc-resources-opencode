@@ -57,7 +57,7 @@ Set required environment variables in ~/.zshrc:
 export API_KEY="your-key-here"
 \`\`\`
 
-## Install in Claude Code
+## Install in Opencode
 
 \`\`\`bash
 claude mcp add --transport stdio $SERVER_NAME \\
@@ -78,4 +78,4 @@ echo ""
 echo "Next steps:"
 echo "1. Copy template to src/server.py"
 echo "2. Set environment variables"
-echo "3. Install in Claude Code"
+echo "3. Install in Opencode"

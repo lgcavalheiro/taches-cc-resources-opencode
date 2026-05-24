@@ -162,7 +162,7 @@ For long-running operations:
 </timeout_handling>
 ```
 
-**Note**: Claude Code has built-in timeouts for tool calls. Subagent prompts should include guidance on what to do when operations approach reasonable time limits.
+**Note**: Opencode has built-in timeouts for tool calls. Subagent prompts should include guidance on what to do when operations approach reasonable time limits.
 </implementation>
 </timeouts>
 

@@ -83,7 +83,7 @@ Set required environment variables in ~/.zshrc:
 export API_KEY="your-key-here"
 \`\`\`
 
-## Install in Claude Code
+## Install in Opencode
 
 \`\`\`bash
 claude mcp add --transport stdio $SERVER_NAME \\
@@ -105,4 +105,4 @@ echo "Next steps:"
 echo "1. Copy template to src/index.ts"
 echo "2. Run: npm run build"
 echo "3. Set environment variables"
-echo "4. Install in Claude Code"
+echo "4. Install in Opencode"

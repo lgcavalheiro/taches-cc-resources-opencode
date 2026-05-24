@@ -46,7 +46,7 @@ Mixing objectives (plan AND build) creates confusion.
 
 ### 4. Leverage Parallel Subagents
 
-Claude Code can spawn hundreds of subagents for reading/searching. Use this:
+Opencode can spawn hundreds of subagents for reading/searching. Use this:
 
 ```markdown
 Study specs/* (up to 500 parallel Sonnet subagents)
@@ -237,7 +237,7 @@ Run:
 
 ### Why Specify Counts?
 
-Claude Code is conservative about spawning subagents unless explicitly permitted. Specifying counts signals:
+Opencode is conservative about spawning subagents unless explicitly permitted. Specifying counts signals:
 - It's safe to parallelize
 - High counts are acceptable
 - Performance is valued
@@ -416,7 +416,7 @@ Use `@filename` to ensure files are loaded into context:
 0b. Study @IMPLEMENTATION_PLAN.md
 ```
 
-This tells Claude Code to inline the file content, guaranteeing it's in context.
+This tells Opencode to inline the file content, guaranteeing it's in context.
 
 **When to use:**
 - Critical files that must be loaded (plan, specs)

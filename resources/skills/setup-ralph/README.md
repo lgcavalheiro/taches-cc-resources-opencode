@@ -1,6 +1,6 @@
 # setup-ralph
 
-A Claude Code skill that sets up [Ralph Wiggum loops](https://ghuntley.com/ralph/) - Geoffrey Huntley's autonomous AI coding technique.
+A Opencode skill that sets up [Ralph Wiggum loops](https://ghuntley.com/ralph/) - Geoffrey Huntley's autonomous AI coding technique.
 
 ## What is Ralph?
 
@@ -34,7 +34,7 @@ The key insight: **fresh context every iteration** prevents hallucination accumu
 
 ## Usage
 
-In Claude Code, run:
+In Opencode, run:
 
 ```
 /setup-ralph
