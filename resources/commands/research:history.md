@@ -119,7 +119,7 @@ After intake complete:
 [What we still don't know from history]
 
 ### Implementation Context
-<claude_context>
+<opencode_context>
 <adopt>
 - patterns: [successful patterns to follow]
 - approaches: [technical approaches that worked]
@@ -135,7 +135,7 @@ After intake complete:
 - still_hard: [things that remain challenging]
 - new_risks: [new risks that didn't exist before]
 </changed>
-</claude_context>
+</opencode_context>
 
 **Next Action:** Apply lessons to planning, research specific aspect deeper, or validate key assumptions
 
@@ -166,7 +166,7 @@ Save the research to a file:
 - Failure analysis goes to root cause (not surface)
 - Lessons are actionable (not just "be careful")
 - Acknowledges what's changed since then
-- Implementation context gives Claude specific patterns to adopt/avoid
+- Implementation context gives Opencode specific patterns to adopt/avoid
 - Informs current approach concretely
 - Output saved to artifacts/research/ directory
 </success_criteria>

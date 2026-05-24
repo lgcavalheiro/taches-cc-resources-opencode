@@ -112,7 +112,7 @@ function loadConfig(): Config {
 
 const config = loadConfig();
 
-// NEVER return secrets to Claude
+// NEVER return secrets to Opencode
 @app.list_resources()
 async def list_resources() -> list[Resource]:
     return [
@@ -164,7 +164,7 @@ config = Config.from_env()
 - Use environment variables for secrets
 - Never hardcode credentials
 - Never log secrets (even in debug mode)
-- Never return secrets to Claude
+- Never return secrets to Opencode
 - Use `.env` for development, proper secret management in production
 - Rotate secrets regularly
 </secrets_management>
@@ -482,11 +482,11 @@ uv add mcp aiohttp
 # Development/testing
 uv run mcp dev server.py
 
-# Install for Claude Desktop
+# Install for Opencode
 uv run mcp install server.py
 ```
 
-**Claude Desktop configuration** (automatic isolation):
+**Opencode configuration** (automatic isolation):
 ```json
 {
   "mcpServers": {
@@ -688,7 +688,7 @@ uv add mcp aiohttp pydantic
 uv run python server.py
 ```
 
-2. **Update claude_desktop_config.json**:
+2. **Update `settings.json`**:
 ```json
 {
   "my-server": {
@@ -704,7 +704,7 @@ uv run python server.py
 }
 ```
 
-3. **Restart Claude Desktop**
+3. **Restart Opencode**
 
 Each server now has isolated dependencies. Updating one server's packages never affects others.
 </practical_examples>
@@ -907,7 +907,7 @@ async def call_tool(name: str, arguments: dict) -> list[TextContent]:
 - Create error hierarchy for different error types
 - Always catch and handle errors gracefully
 - Log detailed errors to stderr
-- Return user-friendly messages to Claude
+- Return user-friendly messages to Opencode
 - Use timeouts to prevent hanging
 - Never expose internal implementation details in errors
 </comprehensive_errors>
@@ -1327,7 +1327,7 @@ async def check_health() -> dict:
 <tool_descriptions>
 **Writing Effective Tool Descriptions**:
 
-Tool descriptions are critical - they determine whether Claude understands when and how to use your tools.
+Tool descriptions are critical - they determine whether Opencode understands when and how to use your tools.
 
 **Good vs Bad Descriptions**:
 
@@ -1336,14 +1336,14 @@ Tool descriptions are critical - they determine whether Claude understands when 
 {
   name: "search",
   description: "Search for things",
-  // Claude doesn't know: What things? What format? When to use this?
+  // Opencode doesn't know: What things? What format? When to use this?
 }
 
 // ✅ GOOD: Clear purpose, clear use case
 {
   name: "search_github_repos",
   description: "Search GitHub repositories by keyword. Use when the user asks to find, discover, or search for GitHub projects. Returns repository name, description, stars, and URL.",
-  // Claude knows: What it does, when to use it, what it returns
+  // Opencode knows: What it does, when to use it, what it returns
 }
 ```
 
@@ -1386,12 +1386,12 @@ Tool(
 "execute"  // Execute what?
 ```
 
-**Testing Descriptions with Claude**:
+**Testing Descriptions with Opencode**:
 
 After writing descriptions, test them:
-1. Ask Claude "what tools do you have?"
+1. Ask Opencode "what tools do you have?"
 2. Give vague requests: "help me with GitHub"
-3. Verify Claude selects the right tool
+3. Verify Opencode selects the right tool
 4. If wrong, improve description specificity
 
 </tool_descriptions>
@@ -1406,7 +1406,7 @@ MCP supports three transport types. Choose based on your use case:
 **1. stdio (Standard Input/Output)**
 
 **Best for:**
-- Claude Desktop integration
+- Opencode integration
 - CLI tools and scripts
 - Simple request/response patterns
 - Single-user, local execution
@@ -1488,7 +1488,7 @@ mcp.run(transport="streamable-http")
 
 | Use Case | Recommended Transport |
 |----------|----------------------|
-| Claude Desktop only | stdio |
+| Opencode local client | stdio |
 | Browser client | Streamable HTTP or SSE |
 | Multiple concurrent users | Streamable HTTP |
 | Real-time updates | SSE |
@@ -1527,7 +1527,7 @@ npx @modelcontextprotocol/inspector uv --directory /path/to/server run python se
 3. **Test edge cases**: Try invalid inputs, missing parameters
 4. **Check error messages**: Ensure errors are clear and actionable
 5. **Validate JSON schemas**: Confirm inputSchema works as expected
-6. **Test with Claude Desktop**: Only after Inspector validation passes
+6. **Test with Opencode**: Only after Inspector validation passes
 
 </mcp_inspector>
 
@@ -1582,11 +1582,11 @@ async def search_repos(query: str) -> str:
         raise
 ```
 
-**Claude Desktop Logs**:
+**Opencode Logs**:
 
 ```bash
 # macOS
-tail -f ~/Library/Logs/Claude/mcp-server-your-server-name.log
+tail -f ~/Library/Logs/Opencode/mcp-server-your-server-name.log
 
 # Look for:
 # - Server startup errors
@@ -1753,7 +1753,7 @@ Brief description (one sentence).
 # Development
 uv run mcp dev server.py
 
-# Claude Desktop
+# Opencode
 uv run mcp install server.py --name "Server Name"
 \```
 
@@ -1770,9 +1770,9 @@ uv sync
 
 ## Configuration
 
-### Claude Desktop
+### Opencode
 
-Add to `claude_desktop_config.json`:
+Add to `settings.json`:
 
 \```json
 {
@@ -1835,7 +1835,7 @@ Description of this resource and its data.
 
 - Check that all dependencies are installed
 - Verify API keys are set correctly
-- Check server logs at `~/Library/Logs/Claude/mcp-server-name.log`
+- Check server logs at `~/Library/Logs/Opencode/mcp-server-name.log`
 
 ### Tool calls failing
 

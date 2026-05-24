@@ -1,6 +1,6 @@
 # CLI Observability
 
-Complete debugging and monitoring without opening Xcode. Claude has full visibility into build errors, runtime logs, crashes, memory issues, and network traffic.
+Complete debugging and monitoring without opening Xcode. Opencode has full visibility into build errors, runtime logs, crashes, memory issues, and network traffic.
 
 <prerequisites>
 ```bash

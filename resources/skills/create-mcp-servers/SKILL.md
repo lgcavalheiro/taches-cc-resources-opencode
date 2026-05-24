@@ -1,10 +1,10 @@
 ---
 name: create-mcp-servers
-description: Create Model Context Protocol (MCP) servers that expose tools, resources, and prompts to Claude. Use when building custom integrations, APIs, data sources, or any server that Claude should interact with via the MCP protocol. Supports both TypeScript and Python implementations.
+description: Create Model Context Protocol (MCP) servers that expose tools, resources, and prompts to Opencode. Use when building custom integrations, APIs, data sources, or any server that Opencode should interact with via the MCP protocol. Supports both TypeScript and Python implementations.
 ---
 
 <objective>
-MCP servers extend Claude's capabilities by exposing tools, resources, and prompts. This skill guides creation of production-ready MCP servers with API integrations, OAuth authentication, response optimization, and proper installation in Opencode and Claude Desktop.
+MCP servers extend Opencode's capabilities by exposing tools, resources, and prompts. This skill guides creation of production-ready MCP servers with API integrations, OAuth authentication, response optimization, and proper installation in Opencode.
 </objective>
 
 <essential_principles>
@@ -40,8 +40,8 @@ On-demand: 4 meta-tools (discover, get_schema, execute, continue) + operations.j
 
 <context>
 MCP servers expose:
-- **Tools**: Functions Claude can call (API requests, file operations, calculations)
-- **Resources**: Data Claude can read (files, database records, API responses)
+- **Tools**: Functions Opencode can call (API requests, file operations, calculations)
+- **Resources**: Data Opencode can read (files, database records, API responses)
 - **Prompts**: Reusable prompt templates with arguments
 
 Standard location: `~/Developer/mcp/{server-name}/`
@@ -113,23 +113,19 @@ Route directly to workflows/create-new-server.md
 <quick_reference>
 ```bash
 # List servers
-claude mcp list
+opencode mcp list
 
 # Add server (Python)
-claude mcp add --transport stdio <name> \
-  --env API_KEY='${API_KEY}' \
-  -- uv --directory ~/Developer/mcp/<name> run python -m src.server
+opencode mcp add
 
 # Add server (TypeScript)
-claude mcp add --transport stdio <name> \
-  --env API_KEY='${API_KEY}' \
-  -- node ~/Developer/mcp/<name>/build/index.js
+opencode mcp add
 
 # Remove server
-claude mcp remove <name>
+opencode mcp logout <name>
 
 # Check logs
-tail -f ~/Library/Logs/Claude/mcp-server-<name>.log
+tail -f ~/Library/Logs/Opencode/mcp-server-<name>.log
 
 # Find paths
 which uv && which node && which python
@@ -137,7 +133,7 @@ which uv && which node && which python
 </quick_reference>
 
 <troubleshooting_quick>
-**Server not appearing:** Check `claude mcp list`, verify config in `~/.config/opencode/settings.json`
+**Server not appearing:** Check `opencode mcp list`, verify config in `~/.config/opencode/settings.json`
 
 **"command not found":** Use absolute paths from `which uv` / `which node`
 
@@ -154,8 +150,8 @@ Full troubleshooting: workflows/troubleshoot-server.md
 
 <success_criteria>
 A production-ready MCP server has:
-- Valid configuration in Opencode (`claude mcp list` shows ✓ Connected)
-- Valid configuration in Claude Desktop config
+- Valid configuration in Opencode (`opencode mcp list` shows ✓ Connected)
+ - Valid configuration in `~/.config/opencode/settings.json`
 - Environment variables set securely in ~/.zshrc
 - Architecture matches operation count
 - OAuth stdio isolation if applicable

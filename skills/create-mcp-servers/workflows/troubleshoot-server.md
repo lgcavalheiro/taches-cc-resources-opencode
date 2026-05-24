@@ -10,7 +10,7 @@
 <title>Identify Symptom</title>
 
 Common symptoms:
-- Server not appearing in `claude mcp list`
+- Server not appearing in `opencode mcp list`
 - Server showing ✗ Disconnected
 - "command not found" errors
 - Environment variable not found
@@ -24,10 +24,10 @@ Common symptoms:
 Run these commands:
 ```bash
 # Check server status
-claude mcp list
+opencode mcp list
 
 # Check logs
-tail -50 ~/Library/Logs/Claude/mcp-server-{name}.log
+tail -50 ~/Library/Logs/Opencode/mcp-server-{name}.log
 
 # Check if command exists
 which uv && which node && which python
@@ -41,7 +41,7 @@ env | grep -E "^[A-Z_]+=" | cut -d= -f1 | sort
 <title>Diagnose Issue</title>
 
 <issue type="not_appearing">
-<symptom>Server not in `claude mcp list`</symptom>
+<symptom>Server not in `opencode mcp list`</symptom>
 <causes>
 - Server never added
 - Wrong server name
@@ -52,7 +52,7 @@ Check Opencode config:
 ```bash
 cat ~/.config/opencode/settings.json | jq '.mcpServers'
 ```
-Re-add if missing using `claude mcp add` command.
+Re-add if missing using `opencode mcp add`.
 </solution>
 </issue>
 
@@ -84,8 +84,8 @@ Re-add if missing using `claude mcp add` command.
 2. Update config with absolute path
 3. Remove and re-add server:
 ```bash
-claude mcp remove {name}
-claude mcp add --transport stdio {name} -- /absolute/path/to/uv ...
+opencode mcp logout {name}
+opencode mcp add
 ```
 </solution>
 </issue>
@@ -128,8 +128,8 @@ source ~/.zshrc
 Based on diagnosis:
 1. Make required changes
 2. Run relevant validation checkpoint
-3. Verify server connects: `claude mcp list`
-4. Check logs are clean: `tail -20 ~/Library/Logs/Claude/mcp-server-{name}.log`
+3. Verify server connects: `opencode mcp list`
+4. Check logs are clean: `tail -20 ~/Library/Logs/Opencode/mcp-server-{name}.log`
 </step>
 
 </process>

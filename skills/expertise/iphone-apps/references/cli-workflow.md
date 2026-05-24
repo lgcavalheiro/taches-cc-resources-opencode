@@ -31,7 +31,7 @@ Create a new iOS project entirely from CLI:
 mkdir MyApp && cd MyApp
 mkdir -p MyApp/{App,Models,Views,Services,Resources} MyAppTests MyAppUITests
 
-# Create project.yml (Claude generates this - see project-scaffolding.md for full template)
+# Create project.yml (Opencode generates this - see project-scaffolding.md for full template)
 cat > project.yml << 'EOF'
 name: MyApp
 options:

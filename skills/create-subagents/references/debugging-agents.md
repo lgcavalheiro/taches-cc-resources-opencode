@@ -63,8 +63,7 @@ Format:
 {
   "invocation_id": "inv_20251115_abc123",
   "timestamp": "2025-11-15T14:23:01Z",
-  "subagent": "security-reviewer",
-  "model": "claude-sonnet-4-5",
+  "subagent": "security-reviewer",opencode
   "input": {
     "task": "Review auth.ts for security issues",
     "context": {...}
@@ -104,7 +103,7 @@ Format:
 - 8-30 days: Sampled logs (every 10th invocation) + all failures
 - 30+ days: Failures only + aggregated metrics
 
-**Storage**: Local files (`.claude/logs/`) or centralized logging service.
+**Storage**: Local files (`.opencode/logs/`) or centralized logging service.
 </log_retention>
 </thorough_logging>
 

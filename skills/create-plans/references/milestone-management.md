@@ -459,7 +459,7 @@ The "Current State" section in BRIEF.md is what makes plans brownfield-aware.
 - No dark mode support
 ```
 
-When planning Phase 5 (v1.1), Claude reads this and knows:
+When planning Phase 5 (v1.1), Opencode reads this and knows:
 - Code exists (2,450 lines Swift)
 - Users exist (500 downloads)
 - Feedback exists (15 want dark mode)

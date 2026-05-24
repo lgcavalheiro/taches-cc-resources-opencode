@@ -28,7 +28,7 @@ Step-by-step process for consistency.
 | Field | Required | Description |
 |-------|----------|-------------|
 | `name` | Yes | Unique identifier using lowercase letters and hyphens |
-| `description` | Yes | Natural language description of purpose. Include when Claude should invoke this. |
+| `description` | Yes | Natural language description of purpose. Include when Opencode should invoke this. |
 | `tools` | No | Comma-separated list. If omitted, inherits all tools from main thread |
 | `model` | No | `sonnet`, `opus`, `haiku`, or `inherit`. If omitted, uses default subagent model |
 </configuration_fields>
@@ -37,7 +37,7 @@ Step-by-step process for consistency.
 <storage_locations>
 | Type | Location | Scope | Priority |
 |------|----------|-------|----------|
-| **Project** | `.claude/agents/` | Current project only | Highest |
+| **Project** | `.opencode/agents/` | Current project only | Highest |
 | **User** | `~/.config/opencode/agents/` | All projects | Lower |
 | **CLI** | `--agents` flag | Current session | Medium |
 | **Plugin** | Plugin's `agents/` dir | All projects | Lowest |
@@ -123,7 +123,7 @@ Use `/agents` command to see full list of available tools.
 <model_selection>
 <model_capabilities>
 **Sonnet 4.5** (`sonnet`):
-- "Best model in the world for agents" (Anthropic)
+- "Best model in the world for agents" (Opencode)
 - Exceptional at agentic tasks: 64% problem-solving on coding benchmarks
 - SWE-bench Verified: 49.0%
 - **Use for**: Planning, complex reasoning, validation, critical decisions
@@ -185,7 +185,7 @@ Use `/agents` command to see full list of available tools.
 
 <invocation>
 <automatic>
-Claude automatically selects subagents based on:
+Opencode automatically selects subagents based on:
 - Task description in user's request
 - `description` field in subagent configuration
 - Current context
@@ -213,25 +213,14 @@ Users can explicitly request a subagent:
 
 <direct_file_management>
 **Alternative**: Edit subagent files directly:
-- Project: `.claude/agents/subagent-name.md`
+- Project: `.opencode/agents/subagent-name.md`
 - User: `~/.config/opencode/agents/subagent-name.md`
 
 Follow the file format specified above (YAML frontmatter + system prompt).
 </direct_file_management>
 
 <cli_based_configuration>
-**Temporary**: Define subagents via CLI for session-specific use:
-
-```bash
-claude --agents '{
-  "code-reviewer": {
-    "description": "Expert code reviewer. Use proactively after code changes.",
-    "prompt": "You are a senior code reviewer. Focus on quality, security, and best practices.",
-    "tools": ["Read", "Grep", "Glob", "Bash"],
-    "model": "sonnet"
-  }
-}'
-```
+**Temporary**: Create the agent file directly, or use `opencode agent create` for a persisted agent.
 
 Useful for testing configurations before saving them.
 </cli_based_configuration>
@@ -303,7 +292,7 @@ You are a debugging specialist skilled at root cause analysis and systematic pro
 
 <tool_security>
 <core_principle>
-**"Permission sprawl is the fastest path to unsafe autonomy."** - Anthropic
+**"Permission sprawl is the fastest path to unsafe autonomy."** - Opencode
 
 Treat tool access like production IAM: start from deny-all, allowlist only what's needed.
 </core_principle>

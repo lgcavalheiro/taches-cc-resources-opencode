@@ -5,7 +5,7 @@ Create a comprehensive, detailed handoff document that captures all context from
 
 ## Instructions
 
-**PRIORITY: Comprehensive detail and precision over brevity.** The goal is to enable someone (or a fresh Claude instance) to pick up exactly where you left off with zero information loss.
+**PRIORITY: Comprehensive detail and precision over brevity.** The goal is to enable someone (or a fresh Opencode instance) to pick up exactly where you left off with zero information loss.
 
 Adapt the level of detail to the task type (coding, research, analysis, writing, configuration, etc.) but maintain comprehensive coverage:
 

@@ -7,7 +7,7 @@
 
 <purpose>
 Create a project vision document that captures what we're building and why.
-This is the ONLY human-focused document - everything else is for Claude.
+This is the ONLY human-focused document - everything else is for Opencode.
 </purpose>
 
 <process>

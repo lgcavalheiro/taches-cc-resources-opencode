@@ -79,7 +79,7 @@ Output: [What artifacts will be created]
 </task>
 
 <task type="checkpoint:human-verify" gate="blocking">
-  <what-built>[What Claude just built that needs verification]</what-built>
+  <what-built>[What Opencode just built that needs verification]</what-built>
   <how-to-verify>
     1. Run: [command to start dev server/app]
     2. Visit: [URL to check]
@@ -136,7 +136,7 @@ After completion, create `.planning/phases/XX-name/{phase}-{plan}-SUMMARY.md`:
 
 <key_elements>
 From create-meta-prompts patterns:
-- XML structure for Claude parsing
+- XML structure for Opencode parsing
 - @context references for file loading
 - Task types: auto, checkpoint:human-action, checkpoint:human-verify, checkpoint:decision
 - Action includes "what to avoid and WHY" (from intelligence-rules)

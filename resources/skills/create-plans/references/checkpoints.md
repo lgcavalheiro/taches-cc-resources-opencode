@@ -2,13 +2,13 @@
 
 Plans execute autonomously. Checkpoints formalize the interaction points where human verification or decisions are needed.
 
-**Core principle:** Claude automates everything with CLI/API. Checkpoints are for verification and decisions, not manual work.
+**Core principle:** Opencode automates everything with CLI/API. Checkpoints are for verification and decisions, not manual work.
 
 ## Checkpoint Types
 
 ### 1. `checkpoint:human-verify` (Most Common)
 
-**When:** Claude completed automated work, human confirms it works correctly.
+**When:** Opencode completed automated work, human confirms it works correctly.
 
 **Use for:**
 - Visual UI checks (layout, styling, responsiveness)
@@ -21,7 +21,7 @@ Plans execute autonomously. Checkpoints formalize the interaction points where h
 **Structure:**
 ```xml
 <task type="checkpoint:human-verify" gate="blocking">
-  <what-built>[What Claude automated and deployed/built]</what-built>
+  <what-built>[What Opencode automated and deployed/built]</what-built>
   <how-to-verify>
     [Exact steps to test - URLs, commands, expected behavior]
   </how-to-verify>
@@ -30,7 +30,7 @@ Plans execute autonomously. Checkpoints formalize the interaction points where h
 ```
 
 **Key elements:**
-- `<what-built>`: What Claude automated (deployed, built, configured)
+- `<what-built>`: What Opencode automated (deployed, built, configured)
 - `<how-to-verify>`: Exact steps to confirm it works (numbered, specific)
 - `<resume-signal>`: Clear indication of how to continue
 
@@ -171,10 +171,10 @@ Plans execute autonomously. Checkpoints formalize the interaction points where h
 
 ### 3. `checkpoint:human-action` (Rare)
 
-**When:** Action has NO CLI/API and requires human-only interaction, OR Claude hit an authentication gate during automation.
+**When:** Action has NO CLI/API and requires human-only interaction, OR Opencode hit an authentication gate during automation.
 
 **Use ONLY for:**
-- **Authentication gates** - Claude tried to use CLI/API but needs credentials to continue (this is NOT a failure)
+- **Authentication gates** - Opencode tried to use CLI/API but needs credentials to continue (this is NOT a failure)
 - Email verification links (account creation requires clicking email)
 - SMS 2FA codes (phone verification)
 - Manual account approvals (platform requires human review before API access)
@@ -191,17 +191,17 @@ Plans execute autonomously. Checkpoints formalize the interaction points where h
 **Structure:**
 ```xml
 <task type="checkpoint:human-action" gate="blocking">
-  <action>[What human must do - Claude already did everything automatable]</action>
+  <action>[What human must do - Opencode already did everything automatable]</action>
   <instructions>
-    [What Claude already automated]
+    [What Opencode already automated]
     [The ONE thing requiring human action]
   </instructions>
-  <verification>[What Claude can check afterward]</verification>
+  <verification>[What Opencode can check afterward]</verification>
   <resume-signal>[How to continue]</resume-signal>
 </task>
 ```
 
-**Key principle:** Claude automates EVERYTHING possible first, only asks human for the truly unavoidable manual step.
+**Key principle:** Opencode automates EVERYTHING possible first, only asks human for the truly unavoidable manual step.
 
 **Example: Email Verification**
 ```xml
@@ -252,7 +252,7 @@ Plans execute autonomously. Checkpoints formalize the interaction points where h
   <verify>vercel ls shows deployment, curl returns 200</verify>
 </task>
 
-<!-- If vercel returns "Error: Not authenticated", Claude creates checkpoint on the fly -->
+<!-- If vercel returns "Error: Not authenticated", Opencode creates checkpoint on the fly -->
 
 <task type="checkpoint:human-action" gate="blocking">
   <action>Authenticate Vercel CLI so I can continue deployment</action>
@@ -265,7 +265,7 @@ Plans execute autonomously. Checkpoints formalize the interaction points where h
   <resume-signal>Type "done" when authenticated</resume-signal>
 </task>
 
-<!-- After authentication, Claude retries the deployment -->
+<!-- After authentication, Opencode retries the deployment -->
 
 <task type="auto">
   <name>Retry Vercel deployment</name>
@@ -274,13 +274,13 @@ Plans execute autonomously. Checkpoints formalize the interaction points where h
 </task>
 ```
 
-**Key distinction:** Authentication gates are created dynamically when Claude encounters auth errors during automation. They're NOT pre-planned - Claude tries to automate first, only asks for credentials when blocked.
+**Key distinction:** Authentication gates are created dynamically when Opencode encounters auth errors during automation. They're NOT pre-planned - Opencode tries to automate first, only asks for credentials when blocked.
 
 See references/cli-automation.md "Authentication Gates" section for more examples and full protocol.
 
 ## Execution Protocol
 
-When Claude encounters `type="checkpoint:*"`:
+When Opencode encounters `type="checkpoint:*"`:
 
 1. **Stop immediately** - do not proceed to next task
 2. **Display checkpoint clearly:**
@@ -354,11 +354,11 @@ Select: supabase, clerk, or nextauth
 - Make verification executable: clear, testable steps
 
 **DON'T:**
-- Ask human to do work Claude can automate (deploy, create resources, run builds)
+- Ask human to do work Opencode can automate (deploy, create resources, run builds)
 - Assume knowledge: "Configure the usual settings" ❌
 - Skip steps: "Set up database" ❌ (too vague)
 - Mix multiple verifications in one checkpoint (split them)
-- Make verification impossible (Claude can't check visual appearance without user confirmation)
+- Make verification impossible (Opencode can't check visual appearance without user confirmation)
 
 ## When to Use Checkpoints
 
@@ -381,21 +381,21 @@ Select: supabase, clerk, or nextauth
 - 3D Secure payment flows
 
 **Don't use checkpoints for:**
-- Things Claude can verify programmatically (tests pass, build succeeds)
-- File operations (Claude can read files to verify)
+- Things Opencode can verify programmatically (tests pass, build succeeds)
+- File operations (Opencode can read files to verify)
 - Code correctness (use tests and static analysis)
 - Anything automatable via CLI/API
 
 ## Checkpoint Placement
 
 Place checkpoints:
-- **After automation completes** - not before Claude does the work
+- **After automation completes** - not before Opencode does the work
 - **After UI buildout** - before declaring phase complete
 - **Before dependent work** - decisions before implementation
 - **At integration points** - after configuring external services
 
 Bad placement:
-- Before Claude automates (asking human to do automatable work) ❌
+- Before Opencode automates (asking human to do automatable work) ❌
 - Too frequent (every other task is a checkpoint) ❌
 - Too late (checkpoint is last task, but earlier tasks needed its result) ❌
 
@@ -404,7 +404,7 @@ Bad placement:
 ### Example 1: Deployment Flow (Correct)
 
 ```xml
-<!-- Claude automates everything -->
+<!-- Opencode automates everything -->
 <task type="auto">
   <name>Deploy to Vercel</name>
   <files>.vercel/, vercel.json, package.json</files>
@@ -439,7 +439,7 @@ Bad placement:
 ### Example 2: Database Setup (Correct)
 
 ```xml
-<!-- Claude automates everything -->
+<!-- Opencode automates everything -->
 <task type="auto">
   <name>Create Upstash Redis database</name>
   <files>.env</files>
@@ -457,13 +457,13 @@ Bad placement:
   <done>Redis database created and configured</done>
 </task>
 
-<!-- NO CHECKPOINT NEEDED - Claude automated everything and verified programmatically -->
+<!-- NO CHECKPOINT NEEDED - Opencode automated everything and verified programmatically -->
 ```
 
 ### Example 3: Stripe Webhooks (Correct)
 
 ```xml
-<!-- Claude automates everything -->
+<!-- Opencode automates everything -->
 <task type="auto">
   <name>Configure Stripe webhooks</name>
   <files>.env, src/app/api/webhooks/route.ts</files>
@@ -510,9 +510,9 @@ Bad placement:
 </task>
 ```
 
-**Why bad:** Vercel has a CLI. Claude should run `vercel --yes`.
+**Why bad:** Vercel has a CLI. Opencode should run `vercel --yes`.
 
-### ✅ GOOD: Claude automates, human verifies
+### ✅ GOOD: Opencode automates, human verifies
 
 ```xml
 <task type="auto">
@@ -568,17 +568,17 @@ Bad placement:
 </task>
 ```
 
-**Why bad:** Claude has Write tool. This should be `type="auto"`.
+**Why bad:** Opencode has Write tool. This should be `type="auto"`.
 
 ## Summary
 
-Checkpoints formalize human-in-the-loop points. Use them when Claude cannot complete a task autonomously OR when human verification is required for correctness.
+Checkpoints formalize human-in-the-loop points. Use them when Opencode cannot complete a task autonomously OR when human verification is required for correctness.
 
-**The golden rule:** If Claude CAN automate it, Claude MUST automate it.
+**The golden rule:** If Opencode CAN automate it, Opencode MUST automate it.
 
 **Checkpoint priority:**
-1. **checkpoint:human-verify** (90% of checkpoints) - Claude automated everything, human confirms visual/functional correctness
+1. **checkpoint:human-verify** (90% of checkpoints) - Opencode automated everything, human confirms visual/functional correctness
 2. **checkpoint:decision** (9% of checkpoints) - Human makes architectural/technology choices
 3. **checkpoint:human-action** (1% of checkpoints) - Truly unavoidable manual steps with no API/CLI
 
-**See also:** references/cli-automation.md for exhaustive list of what Claude can automate.
+**See also:** references/cli-automation.md for exhaustive list of what Opencode can automate.

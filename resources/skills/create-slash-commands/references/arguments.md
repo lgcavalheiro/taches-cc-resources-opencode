@@ -10,7 +10,7 @@ Captures all arguments as a single concatenated string.
 
 ### Basic Example
 
-**Command file**: `.claude/commands/fix-issue.md`
+**Command file**: `.opencode/commands/fix-issue.md`
 ```markdown
 ---
 description: Fix issue following coding standards
@@ -24,14 +24,14 @@ Fix issue #$ARGUMENTS following our coding standards
 /fix-issue 123 high-priority
 ```
 
-**Claude receives**:
+**Opencode receives**:
 ```
 Fix issue #123 high-priority following our coding standards
 ```
 
 ### Multi-Step Workflow Example
 
-**Command file**: `.claude/commands/fix-issue.md`
+**Command file**: `.opencode/commands/fix-issue.md`
 ```markdown
 ---
 description: Fix issue following coding standards
@@ -51,7 +51,7 @@ Fix issue #$ARGUMENTS. Follow these steps:
 /fix-issue 456
 ```
 
-**Claude receives the full prompt** with "456" replacing $ARGUMENTS.
+**Opencode receives the full prompt** with "456" replacing $ARGUMENTS.
 
 ## Positional Arguments - $1, $2, $3
 
@@ -61,7 +61,7 @@ Access specific arguments individually.
 
 ### Example
 
-**Command file**: `.claude/commands/review-pr.md`
+**Command file**: `.opencode/commands/review-pr.md`
 ```markdown
 ---
 description: Review PR with priority and assignee
@@ -75,7 +75,7 @@ Review PR #$1 with priority $2 and assign to $3
 /review-pr 456 high alice
 ```
 
-**Claude receives**:
+**Opencode receives**:
 ```
 Review PR #456 with priority high and assign to alice
 ```

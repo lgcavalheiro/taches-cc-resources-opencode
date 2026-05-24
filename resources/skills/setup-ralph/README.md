@@ -4,10 +4,10 @@ A Opencode skill that sets up [Ralph Wiggum loops](https://ghuntley.com/ralph/) 
 
 ## What is Ralph?
 
-Ralph is an autonomous coding methodology where Claude runs in a loop:
+Ralph is an autonomous coding methodology where Opencode runs in a loop:
 
 ```bash
-while :; do cat PROMPT.md | claude -p --dangerously-skip-permissions; done
+while :; do opencode run < PROMPT.md; done
 ```
 
 Each iteration:
@@ -112,7 +112,7 @@ When Ralph struggles repeatedly, update the environment (specs, AGENTS.md, promp
 
 ```bash
 # Generate token
-claude setup-token
+opencode auth login
 
 # Save it
 echo "sk-ant-oat01-YOUR-TOKEN" > ~/.config/opencode/opencode-oauth-token
@@ -123,10 +123,10 @@ The loop scripts automatically load this token.
 
 ## Docker Mode
 
-Docker mode runs Claude in an isolated container:
+Docker mode runs Opencode in an isolated container:
 - ✅ Can only access the project directory
 - ✅ Can't modify system files
-- ✅ Uses your Claude Max subscription via OAuth token
+- ✅ Uses your Opencode Max subscription via OAuth token
 - ✅ Non-root user (required for `--dangerously-skip-permissions`)
 
 First time setup:

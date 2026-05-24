@@ -54,12 +54,12 @@ Search queries (use WebSearch):
 
 ### Pitfall 4: Tool-Specific Variations
 **What**: Conflating capabilities across different tools/environments
-**Example**: "Claude Desktop supports X" ≠ "Opencode supports X"
+**Example**: "Tool A supports X" ≠ "Tool B supports X"
 **Why it happens**: Not explicitly checking each environment separately
 **Prevention**:
 ```xml
 <verification_checklist>
-□ Claude Desktop capabilities
+□ Client A capabilities
 □ Opencode capabilities
 □ VS Code extension capabilities
 □ API/SDK capabilities

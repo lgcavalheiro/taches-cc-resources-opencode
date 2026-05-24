@@ -11,10 +11,10 @@ Tools and Resources are the primary ways MCP servers expose functionality. This 
 **What makes a good tool?**
 
 1. **Single responsibility**: Each tool does one thing well
-2. **Clear description**: Claude knows when to use it
+2. **Clear description**: Opencode knows when to use it
 3. **Strict schema**: Input validation prevents errors
 4. **Predictable output**: Consistent response format
-5. **Error messages**: Help Claude understand what went wrong
+5. **Error messages**: Help Opencode understand what went wrong
 
 **Examples**:
 
@@ -419,7 +419,7 @@ async function batchProcessTool(args: z.infer<typeof BatchProcessSchema>) {
 
 1. **Logical URI scheme**: Consistent, hierarchical addressing
 2. **Clear naming**: Resource purpose is obvious
-3. **Appropriate mime types**: Helps Claude understand content
+3. **Appropriate mime types**: Helps Opencode understand content
 4. **Template support**: Use URI templates for dynamic resources
 5. **Efficient reading**: Don't load everything at once
 
@@ -725,7 +725,7 @@ async def read_large_resource(uri: str, offset: int = 0, limit: int = 100) -> st
 <large_api_note>
 **Building a server that wraps APIs with 20+ operations?**
 
-The patterns above work well for small to medium servers (< 20 tools). However, if you're wrapping a large API (GitHub, Stripe, Slack, etc.), each tool definition consumes tokens in Claude's context window.
+The patterns above work well for small to medium servers (< 20 tools). However, if you're wrapping a large API (GitHub, Stripe, Slack, etc.), each tool definition consumes tokens in Opencode's context window.
 
 **Problem:** 50+ tools can consume 8,000-15,000 tokens just in tool definitions, before any actual conversation begins.
 

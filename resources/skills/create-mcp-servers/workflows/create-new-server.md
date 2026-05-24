@@ -28,7 +28,7 @@ Use AskUserQuestion with:
   - "Get guidance on MCP design" - Help me figure out what kind of server I need
 
 Routing after selection:
-- "Create new" → Ask: "Describe what you want Claude to be able to do" (plain text input)
+- "Create new" → Ask: "Describe what you want Opencode to be able to do" (plain text input)
 - "Update existing" → Route to workflows/update-existing-server.md
 - "Guidance" → Route to workflows/get-guidance.md
 
@@ -225,24 +225,24 @@ Read: [references/creation-workflow.md](../references/creation-workflow.md) → 
 Validation: [references/validation-checkpoints.md#env-vars](../references/validation-checkpoints.md#env-vars)
 </step>
 
-<step name="6_claude_code_install">
+<step name="6_opencode_install">
 <title>Install in Opencode</title>
 
 Read: [references/creation-workflow.md](../references/creation-workflow.md) → Step 5
 
 Use absolute paths (`which uv`, `which node`) and `${VAR}` expansion.
 
-Validation: [references/validation-checkpoints.md#claude-code-install](../references/validation-checkpoints.md#claude-code-install)
+Validation: [references/validation-checkpoints.md#opencode-install](../references/validation-checkpoints.md#opencode-install)
 </step>
 
-<step name="7_claude_desktop_install">
-<title>Install in Claude Desktop</title>
+<step name="7_opencode_config_verify">
+<title>Verify Opencode Configuration</title>
 
 Read: [references/creation-workflow.md](../references/creation-workflow.md) → Step 6
 
-Update `~/Library/Application Support/Claude/claude_desktop_config.json`
+Inspect `~/.config/opencode/settings.json` to confirm the server entry exists.
 
-Validation: [references/validation-checkpoints.md#claude-desktop-config](../references/validation-checkpoints.md#claude-desktop-config)
+Validation: [references/validation-checkpoints.md#opencode-config](../references/validation-checkpoints.md#opencode-config)
 </step>
 
 <step name="8_test_verify">
@@ -251,12 +251,12 @@ Validation: [references/validation-checkpoints.md#claude-desktop-config](../refe
 Read: [references/creation-workflow.md](../references/creation-workflow.md) → Step 7
 
 <final_checklist>
-- Server appears in `claude mcp list` with ✓ Connected
+- Server appears in `opencode mcp list` with ✓ Connected
 - Environment variables exist in ~/.zshrc
 - No secrets visible in conversation
-- Server added to Claude Desktop config
+- Server present in `~/.config/opencode/settings.json`
 - Standalone test passes
-- No errors in logs: `~/Library/Logs/Claude/mcp-server-{name}.log`
+- No errors in logs: `~/Library/Logs/Opencode/mcp-server-{name}.log`
 </final_checklist>
 
 </step>
@@ -267,6 +267,6 @@ Read: [references/creation-workflow.md](../references/creation-workflow.md) → 
 Server is complete when:
 - All 8 steps executed
 - All validation checkpoints passed
-- `claude mcp list` shows ✓ Connected
+- `opencode mcp list` shows ✓ Connected
 - No errors in logs
 </success_criteria>

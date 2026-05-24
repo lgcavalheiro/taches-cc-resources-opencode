@@ -7,10 +7,10 @@ FROM node:22-slim
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
 # Install Opencode CLI globally
-RUN npm install -g @anthropic-ai/claude-code
+RUN npm install -g opencode-ai
 
 # Create non-root user for safety
-# Claude blocks --dangerously-skip-permissions for root users
+# Opencode blocks --dangerously-skip-permissions for root users
 RUN useradd -m -s /bin/bash ralph && \
     mkdir -p /workspace && \
     chown ralph:ralph /workspace

@@ -1,14 +1,14 @@
 ---
 name: create-plans
-description: Create hierarchical project plans optimized for solo agentic development. Use when planning projects, phases, or tasks that Claude will execute. Produces Claude-executable plans with verification criteria, not enterprise documentation. Handles briefs, roadmaps, phase plans, and context handoffs.
+description: Create hierarchical project plans optimized for solo agentic development. Use when planning projects, phases, or tasks that Opencode will execute. Produces Opencode-executable plans with verification criteria, not enterprise documentation. Handles briefs, roadmaps, phase plans, and context handoffs.
 ---
 
 <essential_principles>
 
-<principle name="solo_developer_plus_claude">
-You are planning for ONE person (the user) and ONE implementer (Claude).
+<principle name="solo_developer_plus_opencode">
+You are planning for ONE person (the user) and ONE implementer (Opencode).
 No teams. No stakeholders. No ceremonies. No coordination overhead.
-The user is the visionary/product owner. Claude is the builder.
+The user is the visionary/product owner. Opencode is the builder.
 </principle>
 
 <principle name="plans_are_prompts">
@@ -33,7 +33,7 @@ Plans must complete within ~50% of context usage to maintain consistent quality.
 - 50-70% context: Degrading quality (efficiency mode, compression)
 - 70%+ context: Poor quality (self-lobotomization, rushed work)
 
-**Critical insight:** Claude doesn't degrade at 80% - it degrades at ~40-50% when it sees context mounting and enters "completion mode." By 80%, quality has already crashed.
+**Critical insight:** Opencode doesn't degrade at 80% - it degrades at ~40-50% when it sees context mounting and enters "completion mode." By 80%, quality has already crashed.
 
 **Solution:** Aggressive atomicity - split phases into many small, focused plans.
 
@@ -53,22 +53,22 @@ See: references/scope-estimation.md
 </principle>
 
 <principle name="human_checkpoints">
-**Claude automates everything that has a CLI or API.** Checkpoints are for verification and decisions, not manual work.
+**Opencode automates everything that has a CLI or API.** Checkpoints are for verification and decisions, not manual work.
 
 **Checkpoint types:**
-- `checkpoint:human-verify` - Human confirms Claude's automated work (visual checks, UI verification)
+- `checkpoint:human-verify` - Human confirms Opencode's automated work (visual checks, UI verification)
 - `checkpoint:decision` - Human makes implementation choice (auth provider, architecture)
 
 **Rarely needed:** `checkpoint:human-action` - Only for actions with no CLI/API (email verification links, account approvals requiring web login with 2FA)
 
-**Critical rule:** If Claude CAN do it via CLI/API/tool, Claude MUST do it. Never ask human to:
+**Critical rule:** If Opencode CAN do it via CLI/API/tool, Opencode MUST do it. Never ask human to:
 - Deploy to Vercel/Railway/Fly (use CLI)
 - Create Stripe webhooks (use CLI/API)
 - Run builds/tests (use Bash)
 - Write .env files (use Write tool)
 - Create database resources (use provider CLI)
 
-**Protocol:** Claude automates work → reaches checkpoint:human-verify → presents what was done → waits for confirmation → resumes
+**Protocol:** Opencode automates work → reaches checkpoint:human-verify → presents what was done → waits for confirmation → resumes
 
 See: references/checkpoints.md, references/cli-automation.md
 </principle>
@@ -221,7 +221,7 @@ If user's request contains domain keywords, INFER the domain:
 | "iPhone", "iOS", "iPad", "mobile app", "SwiftUI mobile" | expertise/iphone-apps |
 | "Unity", "game", "C#", "3D game", "2D game" | expertise/unity-games |
 | "MIDI", "MIDI tool", "sequencer", "MIDI controller", "music app", "MIDI 2.0", "MPE", "SysEx" | expertise/midi |
-| "Agent SDK", "Claude SDK", "agentic app" | expertise/with-agent-sdk |
+| "Agent SDK", "Opencode SDK", "agentic app" | expertise/with-agent-sdk |
 | "Python automation", "workflow", "API integration", "webhooks", "Celery", "Airflow", "Prefect" | expertise/python-workflow-automation |
 | "UI", "design", "frontend", "interface", "responsive", "visual design", "landing page", "website design", "Tailwind", "CSS", "web design" | expertise/ui-design |
 
@@ -243,7 +243,7 @@ Available domain expertise:
 2. iphone-apps - Native iOS with Swift/SwiftUI
 3. unity-games - Unity game development
 4. swift-midi-apps - MIDI/audio apps
-5. with-agent-sdk - Claude Agent SDK apps
+5. with-agent-sdk - Opencode Agent SDK apps
 6. ui-design - Stunning UI/UX design & frontend development
 [... any others found in expertise/]
 
@@ -386,7 +386,7 @@ RESEARCH.md       → Research prompt (optional, for unknowns)
     ↓
 FINDINGS.md       → Research output (if research done)
     ↓
-PLAN.md           → THE PROMPT (Claude executes this)
+PLAN.md           → THE PROMPT (Opencode executes this)
     ↓
 SUMMARY.md        → Outcome (existence = phase complete)
 ```

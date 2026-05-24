@@ -27,7 +27,7 @@ brew install xcbeautify
 mkdir MyApp && cd MyApp
 mkdir -p Sources Tests Resources
 
-# Create project.yml (Claude generates this)
+# Create project.yml (Opencode generates this)
 cat > project.yml << 'EOF'
 name: MyApp
 options:

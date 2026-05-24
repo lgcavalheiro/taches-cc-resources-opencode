@@ -71,9 +71,9 @@ Ask the user 2-4 questions using AskUserQuestion:
 - Option 2: **No, run directly** - Faster but runs with full host access. Use at your own risk.
 
 If Docker mode selected, check for OAuth token:
-1. Check `$CLAUDE_CODE_OAUTH_TOKEN` env var
+1. Check `$OPENCODE_CODE_OAUTH_TOKEN` env var
 2. Check `~/.config/opencode/opencode-oauth-token` file
-3. If neither found, instruct user: "Run `claude setup-token` and save to ~/.config/opencode/opencode-oauth-token"
+3. If neither found, instruct user: "Run `opencode auth login` and save to ~/.config/opencode/opencode-oauth-token"
 
 ## Step 5: Create Directory Structure
 
@@ -101,7 +101,7 @@ mkdir -p specs src
 ## Step 6: Generate Loop Script
 
 Use `templates/loop.sh` and customize:
-- Set Claude model (default: `opus` for reasoning, can use `sonnet` for speed)
+- Set Opencode model (default: `opus` for reasoning, can use `sonnet` for speed)
 - Configure CLI flags based on user preferences
 - Add validation commands based on backpressure choice
 
@@ -208,8 +208,8 @@ DOCKER MODE (if enabled):
 - First run: ./loop-docker.sh --build-image
 - Then: ./loop-docker.sh plan
 - Then: ./loop-docker.sh
-- Requires: ~/.config/opencode/opencode-oauth-token or CLAUDE_CODE_OAUTH_TOKEN env var
-- Get token: claude setup-token
+- Requires: ~/.config/opencode/opencode-oauth-token or OPENCODE_CODE_OAUTH_TOKEN env var
+- Get token: opencode auth login
 
 FILES:
 - loop.sh              - Main orchestration script

@@ -4,10 +4,10 @@ Plans must maintain consistent quality from first task to last. This requires un
 
 ## The Quality Degradation Curve
 
-**Critical insight:** Claude doesn't degrade at arbitrary percentages - it degrades when it *perceives* context pressure and enters "completion mode."
+**Critical insight:** Opencode doesn't degrade at arbitrary percentages - it degrades when it *perceives* context pressure and enters "completion mode."
 
 ```
-Context Usage  │  Quality Level   │  Claude's Mental State
+Context Usage  │  Quality Level   │  Opencode's Mental State
 ─────────────────────────────────────────────────────────
 0-30%          │  ████████ PEAK   │  "I can be thorough and comprehensive"
                │                  │  No anxiety, full detail, best work
@@ -24,7 +24,7 @@ Context Usage  │  Quality Level   │  Claude's Mental State
 
 **The 40-50% inflection point:**
 
-This is where quality breaks. Claude sees context mounting and thinks "I'd better conserve now or I won't finish." Result: The classic mid-execution statement "I'll complete the remaining tasks more concisely" = quality crash.
+This is where quality breaks. Opencode sees context mounting and thinks "I'd better conserve now or I won't finish." Result: The classic mid-execution statement "I'll complete the remaining tasks more concisely" = quality crash.
 
 **The fundamental rule:** Stop BEFORE quality degrades, not at context limit.
 

@@ -11,7 +11,7 @@ Production MCP servers require thorough testing and reliable deployment strategi
 
 1. **Unit Tests** (70%): Test individual tool/resource handlers
 2. **Integration Tests** (20%): Test server protocol compliance
-3. **End-to-End Tests** (10%): Test with actual Claude Desktop
+3. **End-to-End Tests** (10%): Test with actual Opencode
 
 </testing_pyramid>
 
@@ -384,7 +384,7 @@ async def test_api_call_error(mock_get):
 ## End-to-End Testing
 
 <e2e_manual>
-**Manual E2E Testing with Claude Desktop**:
+**Manual E2E Testing with Opencode**:
 
 1. **Build your server**:
    ```bash
@@ -395,7 +395,7 @@ async def test_api_call_error(mock_get):
    python -m pip install -e .
    ```
 
-2. **Configure Claude Desktop**:
+2. **Configure Opencode**:
    ```json
    {
      "mcpServers": {
@@ -407,7 +407,7 @@ async def test_api_call_error(mock_get):
    }
    ```
 
-3. **Restart Claude Desktop**
+3. **Restart Opencode**
 
 4. **Test in conversation**:
    - "List available tools"
@@ -415,7 +415,7 @@ async def test_api_call_error(mock_get):
    - "Read the config://settings resource"
 
 5. **Check logs**:
-   - macOS: `~/Library/Logs/Claude/mcp*.log`
+   - macOS: `~/Library/Logs/Opencode/mcp*.log`
    - Look for your server's stderr output
 
 </e2e_manual>
@@ -424,12 +424,12 @@ async def test_api_call_error(mock_get):
 **Automated E2E Testing** (Advanced):
 
 ```typescript
-// tests/e2e/claude-integration.test.ts
+// tests/e2e/opencode-integration.test.ts
 import { describe, it, expect } from "vitest";
 import { spawn } from "child_process";
 import { once } from "events";
 
-describe("E2E: Claude Desktop Integration", () => {
+describe("E2E: Opencode Integration", () => {
   it("should start server and respond to requests", async () => {
     // Start server as subprocess
     const server = spawn("node", ["dist/index.js"], {
@@ -462,7 +462,7 @@ describe("E2E: Claude Desktop Integration", () => {
 ```
 
 ```python
-# tests/e2e/test_claude_integration.py
+# tests/e2e/test_opencode_integration.py
 import pytest
 import asyncio
 import json
@@ -516,7 +516,7 @@ async def test_server_protocol():
     "build": "tsc && chmod +x dist/index.js",
     "prepublishOnly": "npm run build && npm test"
   },
-  "keywords": ["mcp", "mcp-server", "claude"],
+  "keywords": ["mcp", "mcp-server", "opencode"],
   "author": "Your Name",
   "license": "MIT",
   "repository": {
@@ -530,7 +530,7 @@ async def test_server_protocol():
 ```bash
 # Test locally first
 npm link
-# Test in Claude Desktop with: "command": "my-mcp-server"
+# Test in Opencode with: "command": "my-mcp-server"
 
 # Publish to npm
 npm login
@@ -557,7 +557,7 @@ description = "MCP server for X"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
-keywords = ["mcp", "mcp-server", "claude"]
+keywords = ["mcp", "mcp-server", "opencode"]
 authors = [
     {name = "Your Name", email = "your.email@example.com"}
 ]
@@ -590,7 +590,7 @@ python -m build
 
 # Test locally first
 pip install -e .
-# Test in Claude Desktop
+# Test in Opencode
 
 # Publish to PyPI
 python -m twine upload dist/*

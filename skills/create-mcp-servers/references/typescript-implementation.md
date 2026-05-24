@@ -602,7 +602,7 @@ Users install with:
 npm install -g my-mcp-server
 ```
 
-Claude Desktop config:
+Opencode config:
 ```json
 {
   "mcpServers": {

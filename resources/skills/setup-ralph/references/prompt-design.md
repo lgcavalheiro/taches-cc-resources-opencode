@@ -52,7 +52,7 @@ Opencode can spawn hundreds of subagents for reading/searching. Use this:
 Study specs/* (up to 500 parallel Sonnet subagents)
 ```
 
-This tells Claude it's safe and encouraged to use massive parallelism.
+This tells Opencode it's safe and encouraged to use massive parallelism.
 
 ### 5. Context Budget Allocation
 
@@ -370,7 +370,7 @@ Read spec-1.md, then spec-2.md, then spec-3.md...
 Study specs/* (use up to 500 parallel Sonnet subagents)
 ```
 
-Claude can read hundreds of files simultaneously. Let it.
+Opencode can read hundreds of files simultaneously. Let it.
 
 ### Mistake 4: No Clear Exit
 

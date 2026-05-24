@@ -110,7 +110,7 @@ After intake complete:
 [Reasoning and key conditions]
 
 ### Implementation Context
-<claude_context>
+<opencode_context>
 <if_go>
 - approach: [recommended technical approach]
 - start_with: [first thing to build/validate]
@@ -125,7 +125,7 @@ After intake complete:
 - if_blocked: [fallback approaches if primary fails]
 - simpler_version: [reduced scope that's definitely feasible]
 </alternatives>
-</claude_context>
+</opencode_context>
 
 **Next Action:** Address blockers, reduce scope, prototype critical path, or proceed to /plan/project
 
@@ -157,7 +157,7 @@ Save the research to a file:
 - Blockers are specific and addressable
 - De-risking options are actionable
 - Verdict is clear with reasoning
-- Implementation context gives Claude clear path forward
+- Implementation context gives Opencode clear path forward
 - Enables informed go/no-go decision
 - Output saved to artifacts/research/ directory
 </success_criteria>

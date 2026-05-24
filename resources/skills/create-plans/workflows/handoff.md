@@ -7,7 +7,7 @@
 
 <purpose>
 Create a context handoff file when pausing work. This preserves full context
-so a fresh Claude session can pick up exactly where you left off.
+so a fresh Opencode session can pick up exactly where you left off.
 
 **Handoff is a parking lot, not a journal.** Create when leaving, delete when returning.
 </purpose>

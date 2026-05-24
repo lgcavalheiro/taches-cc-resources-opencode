@@ -153,10 +153,10 @@ All hooks receive these fields:
 
 **Fields**:
 - `decision`: `"block"` to prevent stopping, `undefined` to allow
-- `reason`: Why Claude should continue (required if blocking)
-- `continue`: If true and blocking, Claude continues working
+- `reason`: Why Opencode should continue (required if blocking)
+- `continue`: If true and blocking, Opencode continues working
 - `stopReason`: Message shown when stopping is blocked
-- `systemMessage`: Additional context for Claude
+- `systemMessage`: Additional context for Opencode
 - `stop_hook_active`: If true, don't block again (prevents infinite loops)
 
 **Important**: Always check `stop_hook_active` to avoid infinite loops:
@@ -293,10 +293,10 @@ These fields can be returned by any hook:
 ```
 
 **Fields**:
-- `continue`: If false, stop Claude's execution immediately
+- `continue`: If false, stop Opencode's execution immediately
 - `stopReason`: Message displayed when execution stops
 - `suppressOutput`: If true, hide hook's stdout/stderr from user
-- `systemMessage`: Context added to Claude's next message
+- `systemMessage`: Context added to Opencode's next message
 
 ---
 

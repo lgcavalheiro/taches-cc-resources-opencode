@@ -1,6 +1,6 @@
 # User Gates Reference
 
-User gates prevent Claude from charging ahead at critical decision points.
+User gates prevent Opencode from charging ahead at critical decision points.
 
 ## Question Types
 

@@ -117,7 +117,7 @@ Each phase should be executable by a single prompt:
 </prompt_sized_phases>
 
 <execution_hints>
-Help the next Claude understand how to proceed:
+Help the next Opencode understand how to proceed:
 ```xml
 <phase number="2" name="implement-jwt">
   <execution_notes>

@@ -74,7 +74,7 @@ Check for:
 
 <area name="content_quality">
 Check for:
-- **Conciseness**: Only context Claude doesn't have. Apply critical test: "Does removing this reduce effectiveness?"
+- **Conciseness**: Only context Opencode doesn't have. Apply critical test: "Does removing this reduce effectiveness?"
 - **Clarity**: Direct, specific instructions without analogies or motivational prose
 - **Specificity**: Matches degrees of freedom to task fragility
 - **Examples**: Concrete, minimal, directly applicable

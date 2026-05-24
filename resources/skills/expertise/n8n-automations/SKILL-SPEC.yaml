@@ -1,14 +1,14 @@
-# Skill Spec: n8n Automations with Claude
+# Skill Spec: n8n Automations with Opencode
 # Single source of truth for all subagents
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # METADATA
 # ═══════════════════════════════════════════════════════════════════════════════
 
-domain: "n8n workflow automation with Claude assistance"
+domain: "n8n workflow automation with Opencode assistance"
 skill_name: "n8n-automations"
 location: "skills/expertise/n8n-automations/"
-description: "Build n8n automation workflows with Claude's assistance - from simple integrations to complex AI-powered automations. Full lifecycle: design, build, debug, test, optimize, deploy."
+description: "Build n8n automation workflows with Opencode's assistance - from simple integrations to complex AI-powered automations. Full lifecycle: design, build, debug, test, optimize, deploy."
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ESSENTIAL PRINCIPLES
@@ -17,7 +17,7 @@ description: "Build n8n automation workflows with Claude's assistance - from sim
 
 principles:
   - name: "Design Before Building"
-    content: "Sketch the workflow flow (triggers → actions → outputs) before touching the n8n canvas. Claude validates logic before you wire nodes."
+    content: "Sketch the workflow flow (triggers → actions → outputs) before touching the n8n canvas. Opencode validates logic before you wire nodes."
 
   - name: "Use Native Nodes First"
     content: "n8n has 400+ integrations. Search for existing nodes before using HTTP Request or Code nodes. Less custom code = more maintainable."
@@ -29,7 +29,7 @@ principles:
     content: "Each workflow should do one thing well. Chain workflows via triggers rather than building monolithic automations."
 
   - name: "Expression Safety"
-    content: "Use n8n expression syntax ({{ }}) correctly. Claude validates expressions before execution."
+    content: "Use n8n expression syntax ({{ }}) correctly. Opencode validates expressions before execution."
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CANONICAL TERMINOLOGY
@@ -113,15 +113,15 @@ references:
   # ─── Batch 2: Domain-Specific ─────────────────────────────────────────────
   - file: "ai-nodes.md"
     batch: 2
-    purpose: "Claude integration, LangChain nodes, AI agents, memory, vector stores"
+    purpose: "Opencode integration, LangChain nodes, AI agents, memory, vector stores"
     topics:
-      - "Claude node configuration and usage"
+      - "Opencode node configuration and usage"
       - "AI Agent node with tools and memory"
       - "LangChain integration nodes"
       - "Vector store nodes (Pinecone, Qdrant, etc.)"
       - "Building AI-powered workflows"
     research_queries:
-      - "n8n Claude AI integration 2024 2025"
+      - "n8n Opencode AI integration 2024 2025"
       - "n8n AI agent node LangChain"
       - "n8n vector database nodes"
     cross_refs: ["http-api.md", "code-nodes.md"]
@@ -211,7 +211,7 @@ workflows:
   # ─── Batch 4: Core Workflows ──────────────────────────────────────────────
   - file: "build-workflow.md"
     batch: 4
-    purpose: "Create new workflow from scratch with Claude assistance"
+    purpose: "Create new workflow from scratch with Opencode assistance"
     required_refs:
       - "architecture.md"
       - "nodes-catalog.md"

@@ -191,7 +191,7 @@ Examples:
         "hooks": [
           {
             "type": "command",
-            "command": "prettier --write $CLAUDE_PROJECT_DIR"
+            "command": "prettier --write $OPENCODE_PROJECT_DIR"
           }
         ]
       }
@@ -303,7 +303,7 @@ Each matcher is evaluated independently. A tool can match multiple matchers.
 
 ### Enable debug mode
 ```bash
-claude --debug
+opencode debug
 ```
 
 Debug output shows:
@@ -467,4 +467,4 @@ Common Opencode tool names:
 
 MCP tools: `mcp__{server}__{tool}` (varies by installed servers)
 
-Run `claude --debug` and watch tool calls to discover available tool names.
+Run `opencode debug` and watch tool calls to discover available tool names.

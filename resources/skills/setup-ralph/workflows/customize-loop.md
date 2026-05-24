@@ -132,7 +132,7 @@ export RALPH_BACKUP=true   # Enable (default)
 
 **Verbosity:**
 ```bash
-./loop.sh --verbose  # More detailed Claude output
+./loop.sh --verbose  # More detailed Opencode output
 ```
 
 ### If "AGENTS.md":

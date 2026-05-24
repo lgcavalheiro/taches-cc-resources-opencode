@@ -314,7 +314,7 @@ For research, emphasize key recommendation and decision readiness. Next step typ
 <key_principles>
 
 <structure_for_consumption>
-The next Claude needs to quickly extract relevant information:
+The next Opencode needs to quickly extract relevant information:
 ```xml
 <finding category="authentication">
   <title>JWT vs Session Tokens</title>
@@ -351,7 +351,7 @@ Source: jose library documentation
 </include_code_examples>
 
 <explicit_confidence>
-Help the next Claude know what to trust:
+Help the next Opencode know what to trust:
 ```xml
 <metadata>
   <confidence level="medium">

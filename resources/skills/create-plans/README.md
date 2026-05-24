@@ -1,12 +1,12 @@
 # create-plans
 
-**Hierarchical project planning optimized for solo developer + Claude**
+**Hierarchical project planning optimized for solo developer + Opencode**
 
-Create executable plans that Claude can run, not enterprise documentation that sits unused.
+Create executable plans that Opencode can run, not enterprise documentation that sits unused.
 
 ## Philosophy
 
-**You are the visionary. Claude is the builder.**
+**You are the visionary. Opencode is the builder.**
 
 No teams. No stakeholders. No ceremonies. No coordination overhead.
 
@@ -35,7 +35,7 @@ RESEARCH.md       → Research prompt (for unknowns - optional)
     ↓
 FINDINGS.md       → Research output (if research done)
     ↓
-PLAN.md           → THE PROMPT (Claude executes this)
+PLAN.md           → THE PROMPT (Opencode executes this)
     ↓
 SUMMARY.md        → Outcome (existence = phase complete)
 ```
@@ -135,7 +135,7 @@ Specific. Executable. Framework-appropriate.
 - `iphone-apps` - Swift/SwiftUI iOS
 - `unity-games` - Unity game development
 - `swift-midi-apps` - MIDI/audio apps
-- `with-agent-sdk` - Claude Agent SDK apps
+- `with-agent-sdk` - Opencode Agent SDK apps
 - `nextjs-ecommerce` - Next.js e-commerce
 
 **How it works:**
@@ -183,8 +183,8 @@ See `references/research-pitfalls.md` for known mistakes and prevention.
 
 ## Key Principles
 
-### Solo Developer + Claude
-Planning for ONE person (you) and ONE implementer (Claude). No team coordination, stakeholder management, or enterprise processes.
+### Solo Developer + Opencode
+Planning for ONE person (you) and ONE implementer (Opencode). No team coordination, stakeholder management, or enterprise processes.
 
 ### Plans Are Prompts
 PLAN.md IS the execution prompt. It contains objective, context (@file references), tasks (Files/Action/Verify/Done), and verification steps.

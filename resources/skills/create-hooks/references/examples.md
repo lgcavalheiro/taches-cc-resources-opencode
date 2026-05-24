@@ -13,7 +13,7 @@ Real-world hook configurations ready to use.
         "hooks": [
           {
             "type": "command",
-            "command": "osascript -e 'display notification \"Claude needs your input\" with title \"Opencode\" sound name \"Glass\"'"
+            "command": "osascript -e 'display notification \"Opencode needs your input\" with title \"Opencode\" sound name \"Glass\"'"
           }
         ]
       }
@@ -330,7 +330,7 @@ echo '{"decision": "approve", "reason": "File is not protected"}'
 #!/bin/bash
 
 # Read sprint info from file
-sprint_info=$(cat "$CLAUDE_PROJECT_DIR/.sprint-context.txt" 2>/dev/null || echo "No sprint context available")
+sprint_info=$(cat "$OPENCODE_PROJECT_DIR/.sprint-context.txt" 2>/dev/null || echo "No sprint context available")
 
 # Return as SessionStart context
 jq -n \
@@ -503,7 +503,7 @@ transcript_path=$(echo "$input" | jq -r '.transcript_path')
 session_id=$(echo "$input" | jq -r '.session_id')
 
 # Create archive directory
-archive_dir="$HOME/.claude/archives"
+archive_dir="$HOME/.opencode/archives"
 mkdir -p "$archive_dir"
 
 # Copy transcript with timestamp
@@ -625,7 +625,7 @@ esac
 
 ## Project-Specific Hooks
 
-Use `$CLAUDE_PROJECT_DIR` for project-specific hooks:
+Use `$OPENCODE_PROJECT_DIR` for project-specific hooks:
 
 ```json
 {
@@ -635,7 +635,7 @@ Use `$CLAUDE_PROJECT_DIR` for project-specific hooks:
         "hooks": [
           {
             "type": "command",
-            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/init-session.sh"
+            "command": "$OPENCODE_PROJECT_DIR/.opencode/hooks/init-session.sh"
           }
         ]
       }
@@ -646,7 +646,7 @@ Use `$CLAUDE_PROJECT_DIR` for project-specific hooks:
         "hooks": [
           {
             "type": "command",
-            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/validate-changes.sh"
+            "command": "$OPENCODE_PROJECT_DIR/.opencode/hooks/validate-changes.sh"
           }
         ]
       }

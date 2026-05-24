@@ -411,7 +411,7 @@ async def call_tool(name: str, arguments: dict):
 ## Error Handling
 
 <error_handling_pattern>
-Always return errors as TextContent, never raise exceptions to Claude:
+Always return errors as TextContent, never raise exceptions to Opencode:
 
 ```python
 @app.call_tool()
@@ -423,7 +423,7 @@ async def call_tool(name: str, arguments: dict) -> list[TextContent]:
         # Log to stderr for debugging
         print(f"Error in {name}: {e}", file=sys.stderr)
 
-        # Return error to Claude
+        # Return error to Opencode
         return [TextContent(
             type="text",
             text=f"Error: {str(e)}"

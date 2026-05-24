@@ -11,7 +11,7 @@ Hook never executes, even when expected event occurs.
 
 **1. Enable debug mode**
 ```bash
-claude --debug
+opencode debug
 ```
 
 Look for:
@@ -23,13 +23,13 @@ Look for:
 **2. Check hook file location**
 
 Hooks must be in:
-- Project: `.claude/hooks.json`
+- Project: `.opencode/hooks.json`
 - User: `~/.config/opencode/hooks.json`
 - Plugin: `{plugin}/hooks.json`
 
 Verify:
 ```bash
-cat .claude/hooks.json
+cat .opencode/hooks.json
 # or
 cat ~/.config/opencode/hooks.json
 ```
@@ -38,7 +38,7 @@ cat ~/.config/opencode/hooks.json
 
 Invalid JSON is silently ignored:
 ```bash
-jq . .claude/hooks.json
+jq . .opencode/hooks.json
 ```
 
 If error: fix JSON syntax.
@@ -86,11 +86,11 @@ node -e "console.log(/bash/.test('Bash'))"  # false
 
 ### Solutions
 
-**Missing hook file**: Create `.claude/hooks.json` or `~/.config/opencode/hooks.json`
+**Missing hook file**: Create `.opencode/hooks.json` or `~/.config/opencode/hooks.json`
 
 **Invalid JSON**: Use `jq` to validate and format:
 ```bash
-jq . .claude/hooks.json > temp.json && mv temp.json .claude/hooks.json
+jq . .opencode/hooks.json > temp.json && mv temp.json .opencode/hooks.json
 ```
 
 **Wrong matcher**: Check tool names with `--debug` and update matcher
@@ -168,14 +168,14 @@ apt-get install jq
 Use absolute paths:
 ```json
 {
-  "command": "/Users/username/.claude/hooks/script.sh"
+  "command": "/Users/username/.opencode/hooks/script.sh"
 }
 ```
 
 Or use environment variables:
 ```json
 {
-  "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/script.sh"
+  "command": "$OPENCODE_PROJECT_DIR/.opencode/hooks/script.sh"
 }
 ```
 
@@ -218,7 +218,7 @@ Ensure prompt is clear:
 
 **3. Test prompt manually**
 
-Submit similar prompt to Claude directly to see response format.
+Submit similar prompt to Opencode directly to see response format.
 
 ### Common issues
 
@@ -337,7 +337,7 @@ echo "{\"decision\": \"$decision\", \"reason\": \"$reason\"}"
 ## Infinite Loop in Stop Hook
 
 ### Symptom
-Stop hook runs repeatedly, Claude never stops.
+Stop hook runs repeatedly, Opencode never stops.
 
 ### Cause
 Hook blocks stop without checking `stop_hook_active` flag.
@@ -433,7 +433,7 @@ chown $USER /path/to/hook.sh
 command="./script.sh"
 
 # Use
-command="$CLAUDE_PROJECT_DIR/.claude/hooks/script.sh"
+command="$OPENCODE_PROJECT_DIR/.opencode/hooks/script.sh"
 ```
 
 ---
@@ -517,18 +517,18 @@ Remove overlaps or make them mutually exclusive.
 ## Environment Variables Not Working
 
 ### Symptom
-`$CLAUDE_PROJECT_DIR` or other variables are empty.
+`$OPENCODE_PROJECT_DIR` or other variables are empty.
 
 ### Solutions
 
 **Check variable spelling**:
-- `$CLAUDE_PROJECT_DIR` (correct)
-- `$CLAUDE_PROJECT_ROOT` (wrong)
+- `$OPENCODE_PROJECT_DIR` (correct)
+- `$OPENCODE_PROJECT_ROOT` (wrong)
 
 **Use double quotes**:
 ```json
 {
-  "command": "$CLAUDE_PROJECT_DIR/hooks/script.sh"
+  "command": "$OPENCODE_PROJECT_DIR/hooks/script.sh"
 }
 ```
 
@@ -546,7 +546,7 @@ cd "$cwd" || exit 1
 
 **Step 1**: Enable debug mode
 ```bash
-claude debug
+opencode debug
 ```
 
 **Step 2**: Look for hook execution logs

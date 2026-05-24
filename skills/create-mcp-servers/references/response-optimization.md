@@ -1,14 +1,14 @@
 # Response Optimization - Truncation & Pagination
 
 <critical_pattern>
-**Why this matters:** API responses exhaust Claude's context window after just 5-10 operations. Response optimization achieves 85% token reduction and enables 100+ operations per conversation.
+**Why this matters:** API responses exhaust Opencode's context window after just 5-10 operations. Response optimization achieves 85% token reduction and enables 100+ operations per conversation.
 
 **This pattern is MANDATORY for any MCP server returning lists, search results, or nested objects.**
 </critical_pattern>
 
 ## The Problem
 
-APIs return verbose responses with nested objects and metadata that Claude doesn't need.
+APIs return verbose responses with nested objects and metadata that Opencode doesn't need.
 
 **Example - typical API search response:**
 
@@ -74,7 +74,7 @@ APIs return verbose responses with nested objects and metadata that Claude doesn
 **Define essential fields per resource type:**
 
 ```python
-# What Claude ACTUALLY needs vs what API returns
+# What Opencode ACTUALLY needs vs what API returns
 FIELD_CONFIGS = {
     "items": ["id", "name", "uri", "owner.name", "created_at"],
     # NOT: description, metadata, urls, external_ids, timestamps, etc.
@@ -87,7 +87,7 @@ FIELD_CONFIGS = {
 }
 ```
 
-**Key principle:** Include only what Claude needs to:
+**Key principle:** Include only what Opencode needs to:
 1. Uniquely identify the resource (id, uri)
 2. Display to user (name, title)
 3. Make decisions about next action (status, type, essential relationships)
@@ -446,7 +446,7 @@ Both implement: "Pay only for what you use"
 
 **Field discovery:**
 
-Document available fields in operation schema description or point to API docs. Claude can learn which fields exist through:
+Document available fields in operation schema description or point to API docs. Opencode can learn which fields exist through:
 1. Schema descriptions listing common fields
 2. API documentation references
 3. Error messages when requesting invalid fields
@@ -529,24 +529,24 @@ Context remaining: 192,500 / 200,000 (3.75% used)
 **Traditional (unoptimized):**
 ```
 User: "Search for Queen"
-Claude: [receives 10,000 token response]
+Opencode: [receives 10,000 token response]
 User: "Search for Beatles"
-Claude: [receives 10,000 tokens]
+Opencode: [receives 10,000 tokens]
 ... after 5-10 searches, context exhausted
-Claude: "I've run out of context"
+Opencode: "I've run out of context"
 ```
 
 **Optimized:**
 ```
 User: "Search for Queen"
-Claude: [receives 1,500 token response]
+Opencode: [receives 1,500 token response]
 User: "Search for Beatles"
-Claude: [receives 1,500 tokens]
+Opencode: [receives 1,500 tokens]
 User: "List all my playlists"
-Claude: [receives first 15k token chunk]
-Claude: "Page 1/3 - call continue for more"
+Opencode: [receives first 15k token chunk]
+Opencode: "Page 1/3 - call continue for more"
 User: "continue"
-Claude: [receives second chunk from cache]
+Opencode: [receives second chunk from cache]
 ... can perform 50+ operations before context issues
 ```
 

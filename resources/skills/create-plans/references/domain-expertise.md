@@ -85,7 +85,7 @@ Each reference file should be:
 
 **1. Focused** - Single concern (database patterns, UI layout, API design)
 
-**2. Actionable** - Contains patterns Claude can directly apply
+**2. Actionable** - Contains patterns Opencode can directly apply
 ```markdown
 # Database Patterns
 

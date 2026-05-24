@@ -26,7 +26,7 @@ async def list_tools() -> list[Tool]:
     ]
 ```
 
-**Problem:** Every tool definition is sent to Claude on every conversation start, consuming massive context before any actual work begins.
+**Problem:** Every tool definition is sent to Opencode on every conversation start, consuming massive context before any actual work begins.
 
 **Real metrics with 81 operations:**
 - Tool definitions: ~15,000 tokens
@@ -194,7 +194,7 @@ async def list_resources() -> list[Resource]:
     return resources
 ```
 
-**Claude can:**
+**Opencode can:**
 - Browse `circle://operations/index` to see all operations
 - Read `circle://operations/posts/create` to get schema
 - Never loads operations it doesn't use in a conversation
@@ -420,7 +420,7 @@ def chunk_by_tokens(data: dict, chunk_size: int = 15000) -> list[dict]:
 <disadvantages>
 ### Disadvantages
 
-❌ **Extra discovery step** (Claude must call `discover` or `get_schema` first)
+❌ **Extra discovery step** (Opencode must call `discover` or `get_schema` first)
 ❌ **More complex implementation** (dispatch layer, resources API)
 ❌ **Slightly slower first call** (needs to fetch schema before executing)
 ❌ **Not ideal for < 20 operations** (overhead not worth it)
@@ -430,13 +430,13 @@ def chunk_by_tokens(data: dict, chunk_size: int = 15000) -> list[dict]:
 ### Performance Characteristics
 
 **First operation in conversation:**
-1. Claude calls `discover` to browse operations (~300 tokens response)
-2. Claude calls `get_schema` for specific operation (~200 tokens response)
-3. Claude calls `execute` with parameters
+1. Opencode calls `discover` to browse operations (~300 tokens response)
+2. Opencode calls `get_schema` for specific operation (~200 tokens response)
+3. Opencode calls `execute` with parameters
 4. Total: 3 tool calls vs 1 in traditional approach
 
 **Subsequent operations:**
-1. Claude already knows operations, just calls `execute`
+1. Opencode already knows operations, just calls `execute`
 2. Total: 1 tool call (same as traditional)
 
 **Net result:** Small overhead on first operation, massive context savings overall.

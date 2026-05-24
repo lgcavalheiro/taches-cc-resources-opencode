@@ -3,7 +3,7 @@
 <overview>
 This workflow creates a complete, working MCP server from scratch with zero manual configuration. Use this when Lex wants to build a new MCP server - it handles everything automatically.
 
-**End state**: Server running in both Opencode and Claude Desktop with all credentials configured.
+**End state**: Server running in Opencode with all credentials configured.
 </overview>
 
 <workflow>
@@ -18,7 +18,7 @@ Copy this and check off items as you complete them:
 - [ ] Step 3: Generate server code
 - [ ] Step 4: Configure environment variables
 - [ ] Step 5: Install in Opencode
-- [ ] Step 6: Install in Claude Desktop
+- [ ] Step 6: Configure Opencode
 - [ ] Step 7: Test and verify
 ```
 
@@ -480,7 +480,7 @@ npm run build
 
 ## Step 4: Configure Environment Variables
 
-**SECURITY CRITICAL:** NEVER ask Lex to paste secrets into chat. Secrets must never go through Anthropic's servers or appear in conversation history.
+**SECURITY CRITICAL:** NEVER ask Lex to paste secrets into chat. Secrets must never go through Opencode's servers or appear in conversation history.
 
 ### Provide Exact Commands
 
@@ -572,17 +572,13 @@ done
 
 # Install based on language
 if [ "{language}" = "Python" ]; then
-  claude mcp add --transport stdio {server-name} \
-    $ENV_FLAGS \
-    -- uv --directory ~/Developer/mcp/{server-name} run python -m src.server
+  opencode mcp add
 else
-  claude mcp add --transport stdio {server-name} \
-    $ENV_FLAGS \
-    -- node ~/Developer/mcp/{server-name}/build/index.js
+  opencode mcp add
 fi
 
 # Verify installation
-claude mcp list | grep {server-name}
+opencode mcp list | grep {server-name}
 ```
 
 **Expected output:**
@@ -592,16 +588,16 @@ claude mcp list | grep {server-name}
 
 ---
 
-## Step 6: Install in Claude Desktop
+## Step 6: Configure Opencode
 
 ```bash
 # Get paths
 UV_PATH=$(which uv)
 NODE_PATH=$(which node)
-DESKTOP_CONFIG="$HOME/Library/Application Support/Claude/claude_desktop_config.json"
+OPENCODE_CONFIG="$HOME/.config/opencode/settings.json"
 
 # Backup config
-cp "$DESKTOP_CONFIG" "$DESKTOP_CONFIG.backup.$(date +%s)"
+cp "$OPENCODE_CONFIG" "$OPENCODE_CONFIG.backup.$(date +%s)"
 
 # Create server config based on language
 if [ "{language}" = "Python" ]; then
@@ -629,15 +625,16 @@ EOF
 fi
 
 # Add to config using jq
+
 jq --arg name "{server-name}" \
    --argjson config "$SERVER_CONFIG" \
    '.mcpServers[$name] = $config' \
-   "$DESKTOP_CONFIG" > "$DESKTOP_CONFIG.tmp"
+   "$OPENCODE_CONFIG" > "$OPENCODE_CONFIG.tmp"
 
-mv "$DESKTOP_CONFIG.tmp" "$DESKTOP_CONFIG"
+mv "$OPENCODE_CONFIG.tmp" "$OPENCODE_CONFIG"
 
-echo "✓ Installed in Claude Desktop"
-echo "⚠️  IMPORTANT: Restart Claude Desktop for changes to take effect"
+echo "✓ Installed in Opencode"
+echo "⚠️  IMPORTANT: Restart Opencode for changes to take effect"
 ```
 
 **Generate env_json from environment variables:**
@@ -670,23 +667,23 @@ node build/index.js
 **Verify in Opencode:**
 ```bash
 # Check server appears
-claude mcp list
+opencode mcp list
 
 # Check logs (if there are issues)
-tail -50 ~/Library/Logs/Claude/mcp-server-{server-name}.log
+tail -50 ~/Library/Logs/Opencode/mcp-server-{server-name}.log
 ```
 
-**Verify in Claude Desktop:**
-1. Restart Claude Desktop
-2. Open new conversation
+**Verify in Opencode:**
+1. Restart Opencode
+2. Open a new conversation
 3. Try using a tool from the server
 4. Check it works
 
 **Final checklist:**
 ```
-- [ ] Server appears in `claude mcp list` with ✓ Connected
+- [ ] Server appears in `opencode mcp list` with ✓ Connected
 - [ ] Environment variables are set in ~/.zshrc
-- [ ] Server added to Claude Desktop config
+- [ ] Server present in `~/.config/opencode/settings.json`
 - [ ] Test tool call succeeds
 - [ ] No errors in logs
 ```
@@ -734,20 +731,20 @@ done
 **Step 5 validation:**
 ```bash
 # Check Opencode installation
-claude mcp list | grep -q "{server-name}" && echo "✓ Installed in Opencode" || echo "✗ Not installed"
+opencode mcp list | grep -q "{server-name}" && echo "✓ Installed in Opencode" || echo "✗ Not installed"
 ```
 
 **Step 6 validation:**
 ```bash
-# Check Claude Desktop config
-jq '.mcpServers | has("{server-name}")' "$HOME/Library/Application Support/Claude/claude_desktop_config.json"
+# Check Opencode config
+jq '.mcpServers | has("{server-name}")' "$HOME/.config/opencode/settings.json"
 # Should output: true
 ```
 
 **Step 7 validation:**
 ```bash
 # Check server health
-claude mcp list | grep "{server-name}"
+opencode mcp list | grep "{server-name}"
 # Should show: ✓ Connected
 ```
 
@@ -779,13 +776,13 @@ source ~/.zshrc
 **"Server not appearing in Opencode":**
 ```bash
 # Check installation
-claude mcp list
+opencode mcp list
 
 # Check logs
-tail -50 ~/Library/Logs/Claude/mcp-server-{server-name}.log
+tail -50 ~/Library/Logs/Opencode/mcp-server-{server-name}.log
 
 # Reinstall
-claude mcp remove {server-name}
+opencode mcp logout {server-name}
 # Then repeat Step 5
 ```
 
@@ -815,7 +812,7 @@ npm run build
 
 **Always use absolute paths:**
 - Find with: `which uv`, `which node`
-- Claude Desktop requires absolute paths
+- Opencode requires absolute paths
 
 **Environment variable security:**
 - Never hardcode secrets in code
@@ -828,7 +825,7 @@ npm run build
 - Verify env vars are actually set
 
 **Backup before modifying:**
-- Claude Desktop config is backed up automatically
-- Can restore with: `cp claude_desktop_config.json.backup.<timestamp> claude_desktop_config.json`
+- Opencode config is backed up before modifying it
+- Can restore with: `cp settings.json.backup.<timestamp> settings.json`
 
 </notes>

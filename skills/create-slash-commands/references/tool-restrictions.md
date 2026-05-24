@@ -141,7 +141,7 @@ allowed-tools: SequentialThinking
 Analyze the current problem from first principles.
 ```
 
-**Focus benefit**: Claude focuses purely on reasoning, no file operations
+**Focus benefit**: Opencode focuses purely on reasoning, no file operations
 
 ### Pattern 4: Controlled File Operations
 
@@ -208,7 +208,7 @@ Review this code for security vulnerabilities:
 
 **No allowed-tools field** = All tools available
 
-Claude can:
+Opencode can:
 - Read files
 - Write files
 - Execute bash commands

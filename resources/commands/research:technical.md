@@ -108,7 +108,7 @@ After intake complete:
 [Which approach and why, given the specific context]
 
 ### Implementation Context
-<claude_context>
+<opencode_context>
 <chosen_approach>
 - name: [approach name]
 - libraries: [specific packages with versions]
@@ -130,7 +130,7 @@ After intake complete:
 - gotchas: [common mistakes, edge cases]
 - testing: [how to test each component]
 </implementation>
-</claude_context>
+</opencode_context>
 
 **Next Action:** Prototype chosen approach, deeper research on specific aspect, or begin implementation
 
@@ -161,7 +161,7 @@ Save the research to a file:
 - Tradeoffs are honest, not salesy
 - Libraries are specific and current
 - Recommendation fits the stated constraints
-- Implementation context has everything Claude needs to start building
+- Implementation context has everything Opencode needs to start building
 - Enough detail to begin implementing immediately
 - Output saved to artifacts/research/ directory
 </success_criteria>

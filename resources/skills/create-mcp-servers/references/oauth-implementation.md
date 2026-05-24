@@ -85,7 +85,7 @@ def _execute_operation(operation: str, params: dict) -> Any:
 <the_problem>
 MCP servers run as background processes with NO terminal or browser access:
 
-1. User opens Claude Desktop
+1. User opens Opencode
 2. MCP server starts in background
 3. OAuth library needs user to authorize in browser
 4. **No way to show URL or open browser**
@@ -153,7 +153,7 @@ if __name__ == "__main__":
    cd ~/Developer/mcp/{server-name}
    uv run python authorize.py
    ```
-4. Restart Claude Desktop
+4. Restart Opencode
 ```
 
 **Server uses cached token:**

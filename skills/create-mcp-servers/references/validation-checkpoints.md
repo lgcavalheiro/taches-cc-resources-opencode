@@ -71,27 +71,27 @@ done
 **Required before Step 6:**
 - [ ] All environment variables set
 
-## claude-code-install
+## opencode-mcp-install
 
 ```bash
 # Verify installation
-claude mcp list | grep {server-name}
+opencode mcp list | grep {server-name}
 # Expected: "{server-name}: ... - ✓ Connected"
 ```
 
 **If not connected, check logs:**
 ```bash
-tail -50 ~/Library/Logs/Claude/mcp-server-{server-name}.log
+tail -50 ~/Library/Logs/Opencode/mcp-server-{server-name}.log
 ```
 
 **Required before Step 7:**
 - [ ] Server shows "✓ Connected" status
 
-## claude-desktop-config
+## opencode-config
 
 ```bash
 # Verify config entry exists
-jq '.mcpServers | has("{server-name}")' "$HOME/Library/Application Support/Claude/claude_desktop_config.json"
+jq '.mcpServers | has("{server-name}")' "$HOME/.config/opencode/settings.json"
 # Expected: true
 ```
 

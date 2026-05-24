@@ -1,23 +1,20 @@
 # Auto-Installation for MCP Servers
 
-Complete guide for automatically installing MCP servers in both Opencode and Claude Desktop with safe credential management.
+Complete guide for automatically installing MCP servers in Opencode with safe credential management.
 
 ## Overview
 
-When you build an MCP server, you want it instantly available in both:
-- **Opencode** - For development and coding workflows
-- **Claude Desktop** - For conversational usage
+When you build an MCP server, you want it instantly available in Opencode.
 
 This guide provides scripts and patterns for zero-friction installation.
 
 ## The Problem
 
 Manual MCP installation requires:
-1. Adding to Opencode via CLI (`claude mcp add`)
-2. Editing Claude Desktop config JSON manually
-3. Copying credentials to multiple places
-4. Restarting both applications
-5. Testing that everything works
+1. Adding to Opencode via CLI (`opencode mcp add`)
+2. Copying credentials to multiple places
+3. Restarting Opencode
+4. Testing that everything works
 
 This is tedious and error-prone.
 
@@ -27,7 +24,7 @@ A manual configuration approach with secure patterns:
 1. Store credentials in `~/.mcp_secrets` with `chmod 600`
 2. Use variable expansion (`${VAR}`) in all configs
 3. Install in Opencode (user scope)
-4. Manually update Claude Desktop config with variable references
+4. Manually update Opencode config with variable references
 5. Never write hardcoded secrets to configuration files
 
 **Why not automated?** Auto-installation scripts that write actual credential values to configs are insecure. The recommended pattern uses variable expansion everywhere.
@@ -69,18 +66,14 @@ source ~/.zshrc  # or ~/.bashrc
 source ~/.mcp_secrets
 
 # Install with actual values (Opencode stores them securely)
-claude mcp add --transport stdio meta-ads \
-  --scope user \
-  --env META_ACCESS_TOKEN=${META_ACCESS_TOKEN} \
-  --env META_AD_ACCOUNT_ID=${META_AD_ACCOUNT_ID} \
-  -- uv --directory ~/Developer/mcp/meta-ads-mcp run python -m src.server
+opencode mcp add
 ```
 
-**Note:** When using `claude mcp add`, you pass actual values. Opencode stores them securely in `~/.config/opencode/opencode.json` and references them correctly.
+**Note:** When using `opencode mcp add`, you pass actual values. Opencode stores them securely in `~/.config/opencode/settings.json` and references them correctly.
 
-### Step 3: Configure Claude Desktop
+### Step 3: Configure Opencode
 
-Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
+Edit `~/.config/opencode/settings.json`:
 
 ```json
 {
@@ -104,13 +97,13 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
 
 ```bash
 # Check Opencode
-claude mcp list
+opencode mcp list
 
 # Test environment variables
 echo $META_ACCESS_TOKEN  # Should show value
 ```
 
-Restart Claude Desktop and test.
+Restart Opencode and test.
 
 ## Complete Examples
 
@@ -124,13 +117,10 @@ export STRIPE_API_KEY="sk_live_abc123"
 **2. Install in Opencode:**
 ```bash
 source ~/.mcp_secrets
-claude mcp add --transport stdio stripe \
-  --scope user \
-  --env STRIPE_API_KEY=${STRIPE_API_KEY} \
-  -- uv --directory ~/Developer/mcp/stripe-mcp run python -m src.server
+opencode mcp add
 ```
 
-**3. Configure Claude Desktop:**
+**3. Verify Opencode config:**
 ```json
 {
   "mcpServers": {
@@ -159,16 +149,10 @@ export GHL_CLIENT_LOCATION_ID="loc_client_456"
 **2. Install in Opencode:**
 ```bash
 source ~/.mcp_secrets
-claude mcp add --transport stdio ghl \
-  --scope user \
-  --env GHL_MAIN_API_TOKEN=${GHL_MAIN_API_TOKEN} \
-  --env GHL_MAIN_LOCATION_ID=${GHL_MAIN_LOCATION_ID} \
-  --env GHL_CLIENT_API_TOKEN=${GHL_CLIENT_API_TOKEN} \
-  --env GHL_CLIENT_LOCATION_ID=${GHL_CLIENT_LOCATION_ID} \
-  -- uv --directory ~/Developer/mcp/ghl-mcp run python -m src.server
+opencode mcp add
 ```
 
-**3. Configure Claude Desktop:**
+**3. Verify Opencode config:**
 ```json
 {
   "mcpServers": {
@@ -239,29 +223,29 @@ fi
 ### Check Opencode Installation
 ```bash
 # List all installed servers
-claude mcp list
+opencode mcp list
 
 # Get specific server details
-claude mcp get meta-ads
+cat ~/.config/opencode/settings.json | jq '.mcp["meta-ads"]'
 
 # Remove if needed
-claude mcp remove meta-ads
+opencode mcp logout meta-ads
 ```
 
-### Check Claude Desktop Configuration
+### Check Opencode Configuration
 
 ```bash
 # View all servers
-cat ~/Library/Application\ Support/Claude/claude_desktop_config.json | jq '.mcpServers'
+cat ~/.config/opencode/settings.json | jq '.mcpServers'
 
 # Check specific server
-cat ~/Library/Application\ Support/Claude/claude_desktop_config.json | jq '.mcpServers["meta-ads"]'
+cat ~/.config/opencode/settings.json | jq '.mcpServers["meta-ads"]'
 
 # Verify cwd property is set
-cat ~/Library/Application\ Support/Claude/claude_desktop_config.json | jq '.mcpServers["meta-ads"].cwd'
+cat ~/.config/opencode/settings.json | jq '.mcpServers["meta-ads"].cwd'
 
 # Verify env uses variable expansion
-cat ~/Library/Application\ Support/Claude/claude_desktop_config.json | jq '.mcpServers["meta-ads"].env'
+cat ~/.config/opencode/settings.json | jq '.mcpServers["meta-ads"].env'
 ```
 
 Ensure configs show `${VAR}` syntax, not actual values.
@@ -273,7 +257,7 @@ Ensure configs show `${VAR}` syntax, not actual values.
 - Ask: "List available MCP servers"
 - Ask: "What Meta Ads operations are available?"
 
-**Claude Desktop:**
+**Opencode:**
 - Restart the app
 - Ask: "List available MCP servers"
 - Ask: "What Meta Ads operations are available?"
@@ -285,16 +269,16 @@ When creating MCP servers, include installation in your development process:
 ### Final Installation Steps
 
 1. **Add credentials to `~/.mcp_secrets`**
-2. **Install in Opencode** using `claude mcp add` with actual values
-3. **Configure Claude Desktop** with variable expansion (`${VAR}`)
+2. **Install in Opencode** using `opencode mcp add` with actual values
+3. **Configure Opencode** with variable expansion (`${VAR}`)
 4. **Verify with security checklist**
-5. **Test in both environments**
+5. **Test in Opencode**
 
 This ensures secure, consistent installation across all clients.
 
 ## Troubleshooting
 
-**"Command not found: claude"**
+**"Command not found: opencode"**
 - Install Opencode CLI: Open Opencode → run `/install-cli`
 
 **"jq: command not found"**
@@ -305,17 +289,17 @@ brew install jq  # macOS
 **"Server not appearing in Opencode"**
 ```bash
 # Check installation
-claude mcp list
+opencode mcp list
 
 # Try removing and reinstalling
-claude mcp remove <server-name>
+opencode mcp logout <server-name>
 ~/.config/opencode/scripts/install-mcp.sh ...
 ```
 
-**"Server not appearing in Claude Desktop"**
-- Verify JSON syntax: `jq '.' ~/Library/Application\ Support/Claude/claude_desktop_config.json`
+**"Server not appearing in Opencode"**
+- Verify JSON syntax: `jq '.' ~/.config/opencode/settings.json`
 - Check backup file if config is corrupted
-- Restart Claude Desktop
+- Restart Opencode
 
 **"Environment variable not found"**
 - Check `~/.config/opencode/.env` exists
@@ -328,13 +312,10 @@ claude mcp remove <server-name>
 
 **Opencode:**
 ```bash
-claude mcp add --transport stdio my-ts-server \
-  --scope user \
-  --env API_KEY=${API_KEY} \
-  -- node ~/Developer/mcp/my-ts-server/dist/index.js
+opencode mcp add
 ```
 
-**Claude Desktop:**
+**Opencode:**
 ```json
 {
   "mcpServers": {
@@ -358,12 +339,10 @@ For remote servers:
 
 ```bash
 # HTTP server
-claude mcp add --transport http my-server https://api.example.com/mcp
+opencode mcp add
 
 # SSE server with headers
-claude mcp add --transport sse my-server \
-  --header "Authorization: Bearer $API_TOKEN" \
-  https://mcp.example.com/sse
+opencode mcp add
 ```
 
 ## Security Best Practices Summary
@@ -373,7 +352,7 @@ claude mcp add --transport sse my-server \
 1. **Never hardcode credentials** - Always use `${VAR}` variable expansion
 2. **Secure credential files** - `chmod 600 ~/.mcp_secrets`
 3. **Use `.gitignore`** - Never commit `.env`, `.env.local`, `*.key`, `secrets.json`
-4. **Variable expansion everywhere** - Claude Desktop configs must use `${VAR}`
+4. **Variable expansion everywhere** - Opencode configs must use `${VAR}`
 5. **Token rotation** - Update `~/.mcp_secrets`, restart clients
 6. **Pre-commit hooks** - Install to catch accidental commits
 7. **Always include `cwd`** - Set working directory in all configs

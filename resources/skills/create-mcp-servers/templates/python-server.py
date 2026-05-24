@@ -26,7 +26,7 @@ from mcp.types import Tool, TextContent
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    handlers=[logging.FileHandler(os.path.expanduser(f"~/Library/Logs/Claude/mcp-server-{SERVER_NAME}.log"))]
+    handlers=[logging.FileHandler(os.path.expanduser(f"~/Library/Logs/Opencode/mcp-server-{SERVER_NAME}.log"))]
 )
 logger = logging.getLogger("{SERVER_NAME}")
 

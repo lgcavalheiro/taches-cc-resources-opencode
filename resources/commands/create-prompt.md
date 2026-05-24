@@ -1,5 +1,5 @@
 ---
-description: Create a new prompt that another Claude can execute
+description: Create a new prompt that another Opencode can execute
 ---
 <context>
 Before generating prompts, use the Glob tool to check `./prompts/*.md` to:
@@ -181,10 +181,10 @@ Always Include:
 
 - XML tag structure with clear, semantic tags like `<objective>`, `<context>`, `<requirements>`, `<constraints>`, `<output>`
 - **Contextual information**: Why this task matters, what it's for, who will use it, end goal
-- **Explicit, specific instructions**: Tell Claude exactly what to do with clear, unambiguous language
+- **Explicit, specific instructions**: Tell Opencode exactly what to do with clear, unambiguous language
 - **Sequential steps**: Use numbered lists for clarity
 - File output instructions using relative paths: `./filename` or `./subfolder/filename`
-- Reference to reading the CLAUDE.md for project conventions
+- Reference to reading the AGENTS.md for project conventions
 - Explicit success criteria within `<success_criteria>` or `<verification>` tags
 
 Conditionally Include (based on analysis):
@@ -235,7 +235,7 @@ Explain the end goal and why this matters.
 <requirements>
 [Specific functional requirements]
 [Performance or quality requirements]
-Be explicit about what Claude should do.
+Be explicit about what Opencode should do.
 </requirements>
 
 <implementation>

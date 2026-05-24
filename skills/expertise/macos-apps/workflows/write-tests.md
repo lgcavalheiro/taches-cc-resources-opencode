@@ -21,7 +21,7 @@ Ask the user:
 - Tests for new feature (TDD)?
 - Fix a bug with regression test?
 
-**What Claude tests (automated):**
+**What Opencode tests (automated):**
 - Core logic (data transforms, calculations, algorithms)
 - State management (models, relationships)
 - Service layer (mocked dependencies)

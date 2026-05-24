@@ -30,7 +30,7 @@ description: Add todo item to TO-DOS.md with context from conversation
    - **Todo format**: `- **[Action verb] [Component]** - [Brief description]. **Problem:** [What's wrong/why needed]. **Files:** [Comma-separated paths with line numbers]. **Solution:** [Approach hints or constraints, if applicable].`
    - **Required fields**: Problem and Files (with line numbers like `path/to/file.ts:123-145`)
    - **Optional field**: Solution
-   - Make each section self-contained for future Claude to understand weeks later
+   - Make each section self-contained for future Opencode to understand weeks later
    - Use simple list items (not checkboxes) - todos are removed when work begins
 
 5. Confirm and offer to continue with original work:
@@ -44,7 +44,7 @@ description: Add todo item to TO-DOS.md with context from conversation
 ```markdown
 ## Add Todo Command Improvements - 2025-11-15 14:23
 
-- **Add structured format to add-to-todos** - Standardize todo entries with Problem/Files/Solution pattern. **Problem:** Current todos lack consistent structure, making it hard for Claude to have enough context when revisiting tasks later. **Files:** `commands/add-to-todos.md:22-29`. **Solution:** Use inline bold labels with required Problem and Files fields, optional Solution field.
+- **Add structured format to add-to-todos** - Standardize todo entries with Problem/Files/Solution pattern. **Problem:** Current todos lack consistent structure, making it hard for Opencode to have enough context when revisiting tasks later. **Files:** `commands/add-to-todos.md:22-29`. **Solution:** Use inline bold labels with required Problem and Files fields, optional Solution field.
 
 - **Create check-todos command** - Build companion command to list and select todos. **Problem:** Need workflow to review outstanding todos and load context for selected item. **Files:** `commands/check-todos.md` (new), `TO-DOS.md` (reads from). **Solution:** Parse markdown list, display numbered list, accept selection to load full context and remove item.
 ```

@@ -32,7 +32,7 @@ Based on the brief/context, identify 3-6 phases.
 Good phases are:
 - **Coherent**: Each delivers something complete
 - **Sequential**: Later phases build on earlier
-- **Sized right**: 1-3 days of work each (for solo + Claude)
+- **Sized right**: 1-3 days of work each (for solo + Opencode)
 
 Common phase patterns:
 - Foundation → Core Feature → Enhancement → Polish

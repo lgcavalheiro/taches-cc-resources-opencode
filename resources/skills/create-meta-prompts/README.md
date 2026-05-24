@@ -1,6 +1,6 @@
 # Create Meta-Prompts
 
-The skill-based evolution of the [meta-prompting](../../prompts/meta-prompting/) system. Creates prompts optimized for Claude-to-Claude pipelines with improved dependency detection and structured outputs.
+The skill-based evolution of the [meta-prompting](../../prompts/meta-prompting/) system. Creates prompts optimized for Opencode-to-Opencode pipelines with improved dependency detection and structured outputs.
 
 ## The Problem
 
@@ -14,7 +14,7 @@ Complex tasks benefit from staged workflows: research first, then plan, then imp
 
 ### `/create-meta-prompt [description]`
 
-Describe your task. Claude creates a prompt optimized for its purpose.
+Describe your task. Opencode creates a prompt optimized for its purpose.
 
 **What it does:**
 1. Determines purpose: Do (execute), Plan (strategize), or Research (gather info)
@@ -54,11 +54,11 @@ cp -r skills/* ~/.config/opencode/skills/
 ```
 You: /create-meta-prompt research authentication libraries for Node.js
 
-Claude: [Asks about depth, sources, output format]
+Opencode: [Asks about depth, sources, output format]
 
 You: [Answer questions]
 
-Claude: [Creates research prompt]
+Opencode: [Creates research prompt]
 ✓ Created: .prompts/001-auth-research/001-auth-research.md
 
 What's next?
@@ -67,39 +67,39 @@ What's next?
 
 You: 1
 
-Claude: [Executes research]
+Opencode: [Executes research]
 ✓ Output: .prompts/001-auth-research/auth-research.md
 ```
 
 ```
 You: /create-meta-prompt plan the auth implementation
 
-Claude: Found existing files: auth-research.md
+Opencode: Found existing files: auth-research.md
 Should this prompt reference any existing research?
 
 You: [Select auth-research.md]
 
-Claude: [Creates plan prompt referencing the research]
+Opencode: [Creates plan prompt referencing the research]
 ✓ Created: .prompts/002-auth-plan/002-auth-plan.md
 
 You: 1
 
-Claude: [Executes plan, reads research output]
+Opencode: [Executes plan, reads research output]
 ✓ Output: .prompts/002-auth-plan/auth-plan.md
 ```
 
 ```
 You: /create-meta-prompt implement the auth system
 
-Claude: Found existing files: auth-research.md, auth-plan.md
+Opencode: Found existing files: auth-research.md, auth-plan.md
 [Detects it should reference the plan]
 
-Claude: [Creates implementation prompt]
+Opencode: [Creates implementation prompt]
 ✓ Created: .prompts/003-auth-implement/003-auth-implement.md
 
 You: 1
 
-Claude: [Executes implementation following the plan]
+Opencode: [Executes implementation following the plan]
 ✓ Implementation complete
 ```
 

@@ -4,7 +4,7 @@ Core principles guide skill authoring decisions. These principles ensure skills 
 
 <xml_structure_principle>
 <description>
-Skills use pure XML structure for consistent parsing, efficient token usage, and improved Claude performance.
+Skills use pure XML structure for consistent parsing, efficient token usage, and improved Opencode performance.
 </description>
 
 <why_xml>
@@ -18,13 +18,13 @@ This consistency makes skills predictable and easier to maintain.
 </consistency>
 
 <parseability>
-XML provides unambiguous boundaries and semantic meaning. Claude can reliably:
+XML provides unambiguous boundaries and semantic meaning. Opencode can reliably:
 - Identify section boundaries (where content starts and ends)
 - Understand content purpose (what role each section plays)
 - Skip irrelevant sections (progressive disclosure)
 - Parse programmatically (validation tools can check structure)
 
-Markdown headings are just visual formatting. Claude must infer meaning from heading text, which is less reliable.
+Markdown headings are just visual formatting. Opencode must infer meaning from heading text, which is less reliable.
 </parseability>
 
 <token_efficiency>
@@ -37,7 +37,7 @@ XML tags are more efficient than markdown headings:
 ## Advanced features
 ## Success criteria
 ```
-Total: ~20 tokens, no semantic meaning to Claude
+Total: ~20 tokens, no semantic meaning to Opencode
 
 **XML tags**:
 ```xml
@@ -51,8 +51,8 @@ Total: ~15 tokens, semantic meaning built-in
 Savings compound across all skills in the ecosystem.
 </token_efficiency>
 
-<claude_performance>
-Claude performs better with pure XML because:
+<opencode_performance>
+Opencode performs better with pure XML because:
 - Unambiguous section boundaries reduce parsing errors
 - Semantic tags convey intent directly (no inference needed)
 - Nested tags create clear hierarchies
@@ -60,7 +60,7 @@ Claude performs better with pure XML because:
 - Progressive disclosure works more reliably
 
 Pure XML structure is not just a style preference—it's a performance optimization.
-</claude_performance>
+</opencode_performance>
 </why_xml>
 
 <critical_rule>
@@ -83,12 +83,12 @@ The context window is shared. Your skill shares it with the system prompt, conve
 </description>
 
 <guidance>
-Only add context Claude doesn't already have. Challenge each piece of information:
-- "Does Claude really need this explanation?"
-- "Can I assume Claude knows this?"
+Only add context Opencode doesn't already have. Challenge each piece of information:
+- "Does Opencode really need this explanation?"
+- "Can I assume Opencode knows this?"
 - "Does this paragraph justify its token cost?"
 
-Assume Claude is smart. Don't explain obvious concepts.
+Assume Opencode is smart. Don't explain obvious concepts.
 </guidance>
 
 <concise_example>
@@ -122,7 +122,7 @@ This code opens the PDF and extracts text from the first page.
 </quick_start>
 ```
 
-The concise version assumes Claude knows what PDFs are, understands Python imports, and can read code. All those assumptions are correct.
+The concise version assumes Opencode knows what PDFs are, understands Python imports, and can read code. All those assumptions are correct.
 </concise_example>
 
 <when_to_elaborate>
@@ -142,7 +142,7 @@ Don't add explanation for:
 
 <degrees_of_freedom_principle>
 <description>
-Match the level of specificity to the task's fragility and variability. Give Claude more freedom for creative tasks, less freedom for fragile operations.
+Match the level of specificity to the task's fragility and variability. Give Opencode more freedom for creative tasks, less freedom for fragile operations.
 </description>
 
 <high_freedom>
@@ -173,7 +173,7 @@ Review code for quality, bugs, and maintainability.
 </success_criteria>
 ```
 
-Claude has freedom to adapt the review based on what the code needs.
+Opencode has freedom to adapt the review based on what the code needs.
 </example>
 </high_freedom>
 
@@ -209,7 +209,7 @@ def generate_report(data, format="markdown", include_charts=True):
 </success_criteria>
 ```
 
-Claude can customize the template based on requirements.
+Opencode can customize the template based on requirements.
 </example>
 </medium_freedom>
 
@@ -244,7 +244,7 @@ python scripts/migrate.py --verify --backup
 </success_criteria>
 ```
 
-Claude must follow the exact command with no variation.
+Opencode must follow the exact command with no variation.
 </example>
 </low_freedom>
 
@@ -270,7 +270,7 @@ Skills act as additions to models, so effectiveness depends on the underlying mo
 Test your skill with all models you plan to use:
 
 <haiku_testing>
-**Claude Haiku** (fast, economical)
+**Opencode Haiku** (fast, economical)
 
 Questions to ask:
 - Does the skill provide enough guidance?
@@ -286,7 +286,7 @@ Haiku benefits from:
 </haiku_testing>
 
 <sonnet_testing>
-**Claude Sonnet** (balanced)
+**Opencode Sonnet** (balanced)
 
 Questions to ask:
 - Is the skill clear and efficient?
@@ -302,7 +302,7 @@ Sonnet benefits from:
 </sonnet_testing>
 
 <opus_testing>
-**Claude Opus** (powerful reasoning)
+**Opencode Opus** (powerful reasoning)
 
 Questions to ask:
 - Does the skill avoid over-explaining?
@@ -369,7 +369,7 @@ Don't optimize for one model. Find the balance that works across your target mod
 
 <progressive_disclosure_principle>
 <description>
-SKILL.md serves as an overview. Reference files contain details. Claude loads reference files only when needed.
+SKILL.md serves as an overview. Reference files contain details. Opencode loads reference files only when needed.
 </description>
 
 <token_efficiency>
@@ -395,7 +395,7 @@ See [skill-structure.md](skill-structure.md) for progressive disclosure patterns
 
 <validation_principle>
 <description>
-Validation scripts are force multipliers. They catch errors that Claude might miss and provide actionable feedback.
+Validation scripts are force multipliers. They catch errors that Opencode might miss and provide actionable feedback.
 </description>
 
 <characteristics>
@@ -412,11 +412,11 @@ See [workflows-and-validation.md](workflows-and-validation.md) for validation pa
 
 <principle_summary>
 <xml_structure>
-Use pure XML structure for consistency, parseability, and Claude performance. Required tags: objective, quick_start, success_criteria.
+Use pure XML structure for consistency, parseability, and Opencode performance. Required tags: objective, quick_start, success_criteria.
 </xml_structure>
 
 <conciseness>
-Only add context Claude doesn't have. Assume Claude is smart. Challenge every piece of content.
+Only add context Opencode doesn't have. Assume Opencode is smart. Challenge every piece of content.
 </conciseness>
 
 <degrees_of_freedom>

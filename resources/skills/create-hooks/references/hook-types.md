@@ -113,7 +113,7 @@ Complete reference for all Opencode hook events.
         "hooks": [
           {
             "type": "command",
-            "command": "prettier --write $CLAUDE_PROJECT_DIR",
+            "command": "prettier --write $OPENCODE_PROJECT_DIR",
             "timeout": 10000
           }
         ]
@@ -127,7 +127,7 @@ Complete reference for all Opencode hook events.
 
 ## UserPromptSubmit
 
-**When it fires**: User submits a prompt to Claude
+**When it fires**: User submits a prompt to Opencode
 
 **Can block**: Yes
 
@@ -181,7 +181,7 @@ Complete reference for all Opencode hook events.
 
 ## Stop
 
-**When it fires**: Claude attempts to stop working
+**When it fires**: Opencode attempts to stop working
 
 **Can block**: Yes
 
@@ -201,7 +201,7 @@ Complete reference for all Opencode hook events.
 ```json
 {
   "decision": "block" | undefined,
-  "reason": "Why Claude should continue",
+  "reason": "Why Opencode should continue",
   "continue": true,
   "systemMessage": "Additional instructions"
 }
@@ -284,7 +284,7 @@ Complete reference for all Opencode hook events.
 
 ## SessionStart
 
-**When it fires**: At the beginning of a Claude session
+**When it fires**: At the beginning of a Opencode session
 
 **Can block**: No
 
@@ -326,7 +326,7 @@ Complete reference for all Opencode hook events.
         "hooks": [
           {
             "type": "command",
-            "command": "cat $CLAUDE_PROJECT_DIR/.sprint-context.txt | jq -Rs '{\"hookSpecificOutput\": {\"hookEventName\": \"SessionStart\", \"additionalContext\": .}}'"
+            "command": "cat $OPENCODE_PROJECT_DIR/.sprint-context.txt | jq -Rs '{\"hookSpecificOutput\": {\"hookEventName\": \"SessionStart\", \"additionalContext\": .}}'"
           }
         ]
       }
@@ -339,7 +339,7 @@ Complete reference for all Opencode hook events.
 
 ## SessionEnd
 
-**When it fires**: When a Claude session ends
+**When it fires**: When a Opencode session ends
 
 **Can block**: No (cannot prevent session end)
 
@@ -373,7 +373,7 @@ Complete reference for all Opencode hook events.
         "hooks": [
           {
             "type": "command",
-            "command": "cp $transcript_path $CLAUDE_PROJECT_DIR/.claude/archives/$(date +%Y%m%d-%H%M%S).jsonl"
+            "command": "cp $transcript_path $OPENCODE_PROJECT_DIR/.opencode/archives/$(date +%Y%m%d-%H%M%S).jsonl"
           }
         ]
       }
@@ -421,7 +421,7 @@ Complete reference for all Opencode hook events.
 
 ## Notification
 
-**When it fires**: Claude needs user input (awaiting response)
+**When it fires**: Opencode needs user input (awaiting response)
 
 **Can block**: No
 
@@ -453,7 +453,7 @@ Complete reference for all Opencode hook events.
         "hooks": [
           {
             "type": "command",
-            "command": "osascript -e 'display notification \"Claude needs input\" with title \"Opencode\"'"
+            "command": "osascript -e 'display notification \"Opencode needs input\" with title \"Opencode\"'"
           }
         ]
       }

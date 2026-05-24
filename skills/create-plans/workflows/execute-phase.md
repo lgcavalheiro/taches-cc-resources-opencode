@@ -762,7 +762,7 @@ Logged to .planning/ISSUES.md for future consideration:
 <step name="checkpoint_protocol">
 When encountering `type="checkpoint:*"`:
 
-**Critical: Claude automates everything with CLI/API before checkpoints.** Checkpoints are for verification and decisions, not manual work.
+**Critical: Opencode automates everything with CLI/API before checkpoints.** Checkpoints are for verification and decisions, not manual work.
 
 **Display checkpoint clearly:**
 ```
@@ -810,7 +810,7 @@ Options:
 
 **For checkpoint:human-action (1% - rare, only for truly unavoidable manual steps):**
 ```
-I automated: [what Claude already did via CLI/API]
+I automated: [what Opencode already did via CLI/API]
 
 Need your help with: [the ONE thing with no CLI/API - email link, 2FA code]
 

@@ -10,7 +10,7 @@ Create effective slash commands for Opencode that enable users to trigger reusab
 <quick_start>
 
 <workflow>
-1. Create `.claude/commands/` directory (project) or use `~/.config/opencode/commands/` (personal)
+1. Create `.opencode/commands/` directory (project) or use `~/.config/opencode/commands/` (personal)
 2. Create `command-name.md` file
 3. Add YAML frontmatter (at minimum: `description`)
 4. Write command prompt
@@ -18,7 +18,7 @@ Create effective slash commands for Opencode that enable users to trigger reusab
 </workflow>
 
 <example>
-**File**: `.claude/commands/optimize.md`
+**File**: `.opencode/commands/optimize.md`
 
 ```markdown
 ---
@@ -30,7 +30,7 @@ Analyze the performance of this code and suggest three specific optimizations:
 
 **Usage**: `/optimize`
 
-Claude receives the expanded prompt and analyzes the code in context.
+Opencode receives the expanded prompt and analyzes the code in context.
 </example>
 </quick_start>
 
@@ -240,7 +240,7 @@ Review PR #$1 with priority $2 and assign to $3.
 
 <file_structure>
 
-**Project commands**: `.claude/commands/`
+**Project commands**: `.opencode/commands/`
 - Shared with team via version control
 - Shows `(project)` in `/help` list
 
@@ -264,7 +264,7 @@ Shown in the `/help` command list.
 </field>
 
 <field name="allowed-tools">
-**Optional** - Restricts which tools Claude can use
+**Optional** - Restricts which tools Opencode can use
 
 ```yaml
 allowed-tools: Bash(git add:*), Bash(git status:*), Bash(git commit:*)
@@ -282,7 +282,7 @@ If omitted: All tools available
 <arguments>
 <all_arguments_string>
 
-**Command file**: `.claude/commands/fix-issue.md`
+**Command file**: `.opencode/commands/fix-issue.md`
 ```markdown
 ---
 description: Fix issue following coding standards
@@ -293,12 +293,12 @@ Fix issue #$ARGUMENTS following our coding standards
 
 **Usage**: `/fix-issue 123 high-priority`
 
-**Claude receives**: "Fix issue #123 high-priority following our coding standards"
+**Opencode receives**: "Fix issue #123 high-priority following our coding standards"
 </all_arguments_string>
 
 <positional_arguments_syntax>
 
-**Command file**: `.claude/commands/review-pr.md`
+**Command file**: `.opencode/commands/review-pr.md`
 ```markdown
 ---
 description: Review PR with priority and assignee
@@ -309,7 +309,7 @@ Review PR #$1 with priority $2 and assign to $3
 
 **Usage**: `/review-pr 456 high alice`
 
-**Claude receives**: "Review PR #456 with priority high and assign to alice"
+**Opencode receives**: "Review PR #456 with priority high and assign to alice"
 
 See [references/arguments.md](references/arguments.md) for advanced patterns.
 </positional_arguments_syntax>
@@ -357,7 +357,7 @@ Review the implementation in @ src/utils/helpers.js
 ```
 (Note: Remove the space after @ in actual usage)
 
-Claude can access the referenced file's contents.
+Opencode can access the referenced file's contents.
 </file_references>
 
 <best_practices>
@@ -593,7 +593,7 @@ See [references/patterns.md](references/patterns.md) for more examples.
    - Don't under-specify complex commands
 
 6. **Save the file**:
-   - Project: `.claude/commands/command-name.md`
+   - Project: `.opencode/commands/command-name.md`
    - Personal: `~/.config/opencode/commands/command-name.md`
 </generation_protocol>
 

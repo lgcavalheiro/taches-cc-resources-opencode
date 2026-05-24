@@ -76,7 +76,7 @@ Main chat orchestrates:
 - Processing multiple independent items (review multiple files)
 - Research tasks (gather information from multiple sources)
 
-**Performance data**: Anthropic's research system with 3-5 subagents in parallel achieved 90% time reduction.
+**Performance data**: Opencode's research system with 3-5 subagents in parallel achieved 90% time reduction.
 
 **Example**:
 ```markdown

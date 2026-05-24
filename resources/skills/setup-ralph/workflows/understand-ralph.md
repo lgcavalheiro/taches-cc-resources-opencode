@@ -26,7 +26,7 @@ Explain:
 ```
 Ralph is Geoffrey Huntley's autonomous coding technique. In its purest form:
 
-    while :; do cat PROMPT.md | claude ; done
+    while :; do opencode run < PROMPT.md; done
 
 That's it. 16 characters of bash plus a prompt file.
 
@@ -39,7 +39,7 @@ WHY IT WORKS:
 
 2. File I/O as state
     - IMPLEMENTATION_PLAN.md is the only persistent state
-    - Claude reads it, updates it
+    - Opencode reads it, updates it
     - No sophisticated orchestration needed
 
 3. Backpressure as steering
@@ -188,7 +188,7 @@ WHEN TO ADD:
 
 WHEN NOT TO ADD:
 - One-off mistakes (wait for pattern)
-- General best practices (Claude knows these)
+- General best practices (Opencode knows these)
 - Things already in specs (don't duplicate)
 - Temporary workarounds (fix root cause)
 

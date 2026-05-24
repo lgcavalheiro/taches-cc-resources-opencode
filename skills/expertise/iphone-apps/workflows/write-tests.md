@@ -12,7 +12,7 @@ Tests are documentation that runs. They let the user verify correctness without 
 <process>
 ## Step 1: Understand What to Test
 
-**Claude tests (automated):**
+**Opencode tests (automated):**
 - Core logic
 - State management
 - Service layer

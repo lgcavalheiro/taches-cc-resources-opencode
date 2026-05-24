@@ -77,7 +77,7 @@ Current changes: ! `git status`
 
 **Source**: Official Opencode documentation
 
-**File**: `.claude/commands/optimize.md`
+**File**: `.opencode/commands/optimize.md`
 ```markdown
 ---
 description: Analyze the performance of this code and suggest three specific optimizations
@@ -106,11 +106,11 @@ This helps improve application performance through targeted improvements.
 
 **Usage**: `/optimize`
 
-Claude analyzes code in the current conversation context.
+Opencode analyzes code in the current conversation context.
 
 ### Pattern: Security Review
 
-**File**: `.claude/commands/security-review.md`
+**File**: `.opencode/commands/security-review.md`
 ```markdown
 ---
 description: Review this code for security vulnerabilities
@@ -373,7 +373,7 @@ This helps discover optimal solutions by stripping away assumptions and rebuildi
 </success_criteria>
 ```
 
-Tool restriction ensures Claude only uses SequentialThinking.
+Tool restriction ensures Opencode only uses SequentialThinking.
 
 ### Pattern: Strategic Planning
 

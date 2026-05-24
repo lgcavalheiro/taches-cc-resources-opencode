@@ -9,7 +9,7 @@ BRIEF.md          ← Vision (human-focused)
     ↓
 ROADMAP.md        ← Structure (phases)
     ↓
-phases/XX/PLAN.md ← Implementation (Claude-executable)
+phases/XX/PLAN.md ← Implementation (Opencode-executable)
     ↓
 prompts/          ← Execution (via create-meta-prompts)
 ```
@@ -29,7 +29,7 @@ This is the ONLY document optimized for human reading.
 
 <level name="roadmap">
 **Purpose**: Define phases and sequence
-**Audience**: Both human and Claude
+**Audience**: Both human and Opencode
 **Contains**: Phase names, goals, dependencies, progress tracking
 **Creates**: `.planning/ROADMAP.md`, `.planning/phases/` directories
 
@@ -40,8 +40,8 @@ Roadmap looks UP to Brief for scope, looks DOWN to track phase completion.
 </level>
 
 <level name="phase_plan">
-**Purpose**: Define Claude-executable tasks
-**Audience**: Claude (the implementer)
+**Purpose**: Define Opencode-executable tasks
+**Audience**: Opencode (the implementer)
 **Contains**: Tasks with Files/Action/Verification/Done-when
 **Creates**: `.planning/phases/XX-name/PLAN.md`
 
@@ -53,7 +53,7 @@ Phase plan looks UP to Roadmap for scope, produces implementation details.
 
 <level name="prompts">
 **Purpose**: Optimized execution instructions
-**Audience**: Claude (via create-meta-prompts)
+**Audience**: Opencode (via create-meta-prompts)
 **Contains**: Research/Plan/Do prompts with metadata
 **Creates**: `.planning/phases/XX-name/prompts/`
 
@@ -132,7 +132,7 @@ Progress flows UP and gets aggregated.
 </scope_inheritance>
 
 <cross_phase_context>
-When planning Phase N, Claude should understand:
+When planning Phase N, Opencode should understand:
 
 - What Phase N-1 delivered (completed work)
 - What Phase N should build on (foundations)

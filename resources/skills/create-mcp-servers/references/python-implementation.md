@@ -269,7 +269,7 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
             results = await perform_search(args)
             return [TextContent(type="text", text=str(results))]
         except ValidationError as e:
-            # Return validation errors to Claude
+            # Return validation errors to Opencode
             return [TextContent(
                 type="text",
                 text=f"Invalid arguments: {e}"
@@ -654,7 +654,7 @@ Users install with:
 pip install my-mcp-server
 ```
 
-Claude Desktop config:
+Opencode config:
 ```json
 {
   "mcpServers": {

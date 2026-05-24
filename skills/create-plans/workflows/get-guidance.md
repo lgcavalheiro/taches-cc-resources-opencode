@@ -23,7 +23,7 @@ Based on situation:
 → Create Roadmap. Break into phases first.
 
 **Have phases, need specifics:**
-→ Plan Phase. Get Claude-executable tasks.
+→ Plan Phase. Get Opencode-executable tasks.
 
 **Mid-project, lost track:**
 → Audit current state. What exists? What's left?
@@ -67,9 +67,9 @@ Is there a brief?
 → Roadmap. Break it into 3-5 phases.
 
 **"I have a phase but tasks are vague"**
-→ Plan Phase with Claude-executable specificity.
+→ Plan Phase with Opencode-executable specificity.
 
-**"I have a plan but Claude keeps going off track"**
+**"I have a plan but Opencode keeps going off track"**
 → Tasks aren't specific enough. Add Files/Action/Verification.
 
 **"Context keeps running out mid-task"**

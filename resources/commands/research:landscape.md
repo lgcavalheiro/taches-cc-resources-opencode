@@ -118,7 +118,7 @@ Player C            Player F
 - [Where we might fit/compete/differentiate]
 
 ### Implementation Context
-<claude_context>
+<opencode_context>
 <positioning>
 - opportunities: [where we could enter/compete]
 - crowded: [areas to avoid unless differentiating significantly]
@@ -134,7 +134,7 @@ Player C            Player F
 - watch: [trends to monitor]
 - avoid: [declining approaches]
 </trends>
-</claude_context>
+</opencode_context>
 
 **Next Action:** Deep dive on specific area, competitive research on key players, or run /plan/brief to define our approach
 
@@ -165,7 +165,7 @@ Save the research to a file:
 - Players are correctly positioned
 - Trends are backed by evidence
 - Gaps are genuine opportunities (not just missing features)
-- Implementation context gives Claude strategic and technical direction
+- Implementation context gives Opencode strategic and technical direction
 - Provides strategic clarity about the space
 - Output saved to artifacts/research/ directory
 </success_criteria>

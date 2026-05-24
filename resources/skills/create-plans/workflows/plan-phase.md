@@ -19,7 +19,7 @@
 Create an executable phase prompt (PLAN.md). This is where we get specific:
 objective, context, tasks, verification, success criteria, and output specification.
 
-**Key insight:** PLAN.md IS the prompt that Claude executes. Not a document that
+**Key insight:** PLAN.md IS the prompt that Opencode executes. Not a document that
 gets transformed into a prompt.
 </purpose>
 
@@ -76,7 +76,7 @@ Each task must have:
 - **Done**: Acceptance criteria
 
 **Identify checkpoints:**
-- Claude automated work needing visual/functional verification? → checkpoint:human-verify
+- Opencode automated work needing visual/functional verification? → checkpoint:human-verify
 - Implementation choices to make? → checkpoint:decision
 - Truly unavoidable manual action (email link, 2FA)? → checkpoint:human-action (rare)
 
@@ -317,7 +317,7 @@ If you can't specify Files + Action + Verify + Done, the task is too vague.
 - Don't add acceptance criteria committees
 - Don't create sub-sub-sub tasks
 
-Tasks are instructions for Claude, not Jira tickets.
+Tasks are instructions for Opencode, not Jira tickets.
 </anti_patterns>
 
 <success_criteria>
@@ -328,7 +328,7 @@ Phase planning is complete when:
 - [ ] Each plan has 3-6 tasks (scoped to ~80% context)
 - [ ] Each task has: Type, Files (if auto), Action, Verify, Done
 - [ ] Checkpoints identified and properly structured
-- [ ] Tasks are specific enough for Claude to execute
+- [ ] Tasks are specific enough for Opencode to execute
 - [ ] If multiple plans: logical split by subsystem/dependency/complexity
 - [ ] User knows next steps
 </success_criteria>

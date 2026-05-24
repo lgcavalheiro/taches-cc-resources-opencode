@@ -9,10 +9,10 @@ description: Set up and configure Geoffrey Huntley's original Ralph Wiggum auton
 Ralph is Geoffrey Huntley's autonomous AI coding methodology that uses iterative loops with task selection, execution, and validation. In its purest form, it's a Bash loop:
 
 ```bash
-while :; do cat PROMPT.md | claude ; done
+while :; do opencode run < PROMPT.md; done
 ```
 
-The loop feeds a prompt file to Claude, the agent completes one task, updates the implementation plan, then exits (does not commit automatically - only commits when explicitly requested). The loop restarts immediately with fresh context.
+The loop feeds a prompt file to Opencode, the agent completes one task, updates the implementation plan, then exits (does not commit automatically - only commits when explicitly requested). The loop restarts immediately with fresh context.
 
 ### Core Philosophy
 

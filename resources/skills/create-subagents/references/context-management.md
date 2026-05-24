@@ -222,7 +222,7 @@ On context switch:
 ```markdown
 <scratchpad_workflow>
 For complex debugging:
-1. Create scratchpad file: `.claude/scratch/debug-session-{timestamp}.md`
+1. Create scratchpad file: `.opencode/scratch/debug-session-{timestamp}.md`
 2. Log each hypothesis and test result in scratchpad
 3. Keep only current hypothesis and key findings in context
 4. Reference scratchpad for full debugging history
@@ -327,7 +327,7 @@ Summary format:
 
 ```markdown
 <memory_structure>
-.claude/memory/
+.opencode/memory/
   core-facts.md          # Essential project information
   decisions.md           # Key decisions and rationale
   patterns.md            # Discovered patterns and conventions
@@ -363,7 +363,7 @@ You are a system architect maintaining coherent design across project evolution.
 
 <memory_management>
 On each invocation:
-1. Read `.claude/memory/architecture-state.md` for current system state
+1. Read `.opencode/memory/architecture-state.md` for current system state
 2. Perform assigned task with full context
 3. Update architecture-state.md with new components, decisions, patterns
 4. Maintain concise state (max 500 lines), summarize older decisions

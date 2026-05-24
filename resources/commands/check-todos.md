@@ -23,10 +23,10 @@ description: List outstanding todos and select one to work on
    - Read and briefly summarize relevant files mentioned
 
 4. Check for established workflows:
-   - Read CLAUDE.md (if exists) to understand project-specific workflows and rules
-   - Look for `.claude/skills/` directory
+   - Read AGENTS.md (if exists) to understand project-specific workflows and rules
+   - Look for `.opencode/skills/` directory
    - Match file paths in todo to domain patterns (`plugins/` → plugin workflow, `mcp-servers/` → MCP workflow)
-   - Check CLAUDE.md for explicit workflow requirements for this type of work
+   - Check AGENTS.md for explicit workflow requirements for this type of work
 
 5. Present action options to user:
    - **If matching skill/workflow found**: "This looks like [domain] work. Would you like to:\n\n1. Invoke [skill-name] skill and start\n2. Work on it directly\n3. Brainstorm approach first\n4. Put it back and browse other todos\n\nReply with the number of your choice."

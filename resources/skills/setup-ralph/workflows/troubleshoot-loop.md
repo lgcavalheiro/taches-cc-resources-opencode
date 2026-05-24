@@ -137,11 +137,11 @@ ls -la PROMPT_plan.md PROMPT_build.md
 ```
 If missing, run setup again or create from templates.
 
-**Check Claude CLI:**
+**Check Opencode CLI:**
 ```bash
-claude --version
+opencode --version
 ```
-If not found: `npm install -g @anthropic-ai/claude-code`
+If not found: install Opencode CLI
 
 **Check OAuth token (for headless mode):**
 ```bash
@@ -149,7 +149,7 @@ If not found: `npm install -g @anthropic-ai/claude-code`
 cat ~/.config/opencode/opencode-oauth-token
 
 # If missing, run:
-claude setup-token
+opencode auth login
 # Save to ~/.config/opencode/opencode-oauth-token
 
 # Set permissions
@@ -243,12 +243,12 @@ After fixing the issue:
 
 1. **Add to AGENTS.md** if relevant pattern discovered
 2. **Update specs** if requirements were unclear
-3. **Update prompts** if Claude needed different instructions
+3. **Update prompts** if Opencode needed different instructions
 4. **Consider Docker mode** if safety is a concern
 
 Ask: "Would you like to:"
 1. **Add a learning to AGENTS.md** - Document what went wrong
-2. **Update prompts** - Change Claude's instructions
+2. **Update prompts** - Change Opencode's instructions
 3. **Resume the loop** - Continue with the fix applied
 4. **Return to main menu** - Done troubleshooting
 </process>

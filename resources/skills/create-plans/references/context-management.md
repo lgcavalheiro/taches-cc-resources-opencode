@@ -1,9 +1,9 @@
 <overview>
-Claude has a finite context window. This reference defines how to monitor usage and handle approaching limits gracefully.
+Opencode has a finite context window. This reference defines how to monitor usage and handle approaching limits gracefully.
 </overview>
 
 <context_awareness>
-Claude receives system warnings showing token usage:
+Opencode receives system warnings showing token usage:
 
 ```
 Token usage: 150000/200000; 50000 remaining

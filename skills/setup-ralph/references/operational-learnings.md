@@ -154,7 +154,7 @@ Don't add universal programming wisdom:
 - Handle errors properly
 ```
 
-**Why:** Claude already knows this. AGENTS.md is for project-specific knowledge.
+**Why:** Opencode already knows this. AGENTS.md is for project-specific knowledge.
 
 ### 3. Things in Specs
 
@@ -479,7 +479,7 @@ AGENTS.md shouldn't be 1000+ lines of comprehensive project documentation. That 
 Don't make it a list of "thou shalt not" commands. Keep it practical and pattern-focused.
 
 ### 3. The Tutorial
-Don't teach programming concepts. Assume Claude is a competent developer, just new to your project.
+Don't teach programming concepts. Assume Opencode is a competent developer, just new to your project.
 
 ### 4. The Archive
 Don't keep historical notes about decisions. Document current state only.

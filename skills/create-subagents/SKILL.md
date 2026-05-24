@@ -4,7 +4,7 @@ description: Expert guidance for creating, building, and using Opencode subagent
 ---
 
 <objective>
-Subagents are specialized Claude instances that run in isolated contexts with focused roles and limited tool access. This skill teaches you how to create effective subagents, write strong system prompts, configure tool access, and orchestrate multi-agent workflows using the Task tool.
+Subagents are specialized Opencode instances that run in isolated contexts with focused roles and limited tool access. This skill teaches you how to create effective subagents, write strong system prompts, configure tool access, and orchestrate multi-agent workflows using the Task tool.
 
 Subagents enable delegation of complex tasks to specialized agents that operate autonomously without user interaction, returning their final output to the main conversation.
 </objective>
@@ -67,7 +67,7 @@ Project-level subagents override user-level when names conflict.
 
 <field name="description">
 - Natural language description of purpose
-- Include when Claude should invoke this subagent
+- Include when Opencode should invoke this subagent
 - Used for automatic subagent selection
 </field>
 
@@ -173,7 +173,7 @@ Tailor instructions to the specific task domain. Don't create generic "helper" s
 </system_prompt_guidelines>
 
 <subagent_xml_structure>
-Subagent.md files are system prompts consumed only by Claude. Like skills and slash commands, they should use pure XML structure for optimal parsing and token efficiency.
+Subagent.md files are system prompts consumed only by Opencode. Like skills and slash commands, they should use pure XML structure for optimal parsing and token efficiency.
 
 <recommended_tags>
 Common tags for subagent structure:
@@ -212,7 +212,7 @@ For XML structure principles and token efficiency details, see @skills/create-ag
 
 <invocation>
 <automatic>
-Claude automatically selects subagents based on the `description` field when it matches the current task.
+Opencode automatically selects subagents based on the `description` field when it matches the current task.
 </automatic>
 
 <explicit>

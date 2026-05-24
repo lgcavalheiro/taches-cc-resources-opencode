@@ -91,7 +91,7 @@ echo '{"decision": "approve", "reason": "File exists"}'
 ```json
 {
   "type": "command",
-  "command": "osascript -e 'display notification \"Claude needs input\" with title \"Opencode\"'"
+  "command": "osascript -e 'display notification \"Opencode needs input\" with title \"Opencode\"'"
 }
 ```
 
@@ -159,7 +159,7 @@ fi
 ```json
 {
   "type": "prompt",
-  "prompt": "Review the conversation transcript: $ARGUMENTS\n\nDetermine if Claude should stop:\n1. All user tasks completed?\n2. Any errors that need fixing?\n3. Tests passing?\n4. Documentation updated?\n\nIf incomplete: {\"decision\": \"block\", \"reason\": \"what's missing\"}\nIf complete: {\"decision\": \"approve\", \"reason\": \"all done\"}"
+  "prompt": "Review the conversation transcript: $ARGUMENTS\n\nDetermine if Opencode should stop:\n1. All user tasks completed?\n2. Any errors that need fixing?\n3. Tests passing?\n4. Documentation updated?\n\nIf incomplete: {\"decision\": \"block\", \"reason\": \"what's missing\"}\nIf complete: {\"decision\": \"approve\", \"reason\": \"all done\"}"
 }
 ```
 

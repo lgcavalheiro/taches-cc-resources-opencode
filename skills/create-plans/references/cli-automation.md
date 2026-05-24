@@ -1,15 +1,15 @@
 # CLI and API Automation Reference
 
-**Core principle:** If it has a CLI or API, Claude does it. Never ask the human to perform manual steps that Claude can automate.
+**Core principle:** If it has a CLI or API, Opencode does it. Never ask the human to perform manual steps that Opencode can automate.
 
-This reference documents what Claude CAN and SHOULD automate during plan execution.
+This reference documents what Opencode CAN and SHOULD automate during plan execution.
 
 ## Deployment Platforms
 
 ### Vercel
 **CLI:** `vercel`
 
-**What Claude automates:**
+**What Opencode automates:**
 - Create and deploy projects: `vercel --yes`
 - Set environment variables: `vercel env add KEY production`
 - Link to git repo: `vercel link`
@@ -40,7 +40,7 @@ This reference documents what Claude CAN and SHOULD automate during plan executi
 ### Railway
 **CLI:** `railway`
 
-**What Claude automates:**
+**What Opencode automates:**
 - Initialize project: `railway init`
 - Link to repo: `railway link`
 - Deploy: `railway up`
@@ -50,7 +50,7 @@ This reference documents what Claude CAN and SHOULD automate during plan executi
 ### Fly.io
 **CLI:** `fly`
 
-**What Claude automates:**
+**What Opencode automates:**
 - Launch app: `fly launch --no-deploy`
 - Deploy: `fly deploy`
 - Set secrets: `fly secrets set KEY=value`
@@ -61,7 +61,7 @@ This reference documents what Claude CAN and SHOULD automate during plan executi
 ### Stripe
 **CLI:** `stripe`
 
-**What Claude automates:**
+**What Opencode automates:**
 - Create webhook endpoints: `stripe listen --forward-to localhost:3000/api/webhooks`
 - Trigger test events: `stripe trigger payment_intent.succeeded`
 - Create products/prices: Stripe API via curl/fetch
@@ -93,7 +93,7 @@ This reference documents what Claude CAN and SHOULD automate during plan executi
 ### Supabase
 **CLI:** `supabase`
 
-**What Claude automates:**
+**What Opencode automates:**
 - Initialize project: `supabase init`
 - Link to remote: `supabase link --project-ref {ref}`
 - Create migrations: `supabase migration new {name}`
@@ -111,7 +111,7 @@ This reference documents what Claude CAN and SHOULD automate during plan executi
 ### Upstash (Redis/Kafka)
 **CLI:** `upstash`
 
-**What Claude automates:**
+**What Opencode automates:**
 - Create Redis database: `upstash redis create {name} --region {region}`
 - Get connection details: `upstash redis get {id}`
 - Create Kafka cluster: `upstash kafka create {name} --region {region}`
@@ -133,7 +133,7 @@ This reference documents what Claude CAN and SHOULD automate during plan executi
 ### PlanetScale
 **CLI:** `pscale`
 
-**What Claude automates:**
+**What Opencode automates:**
 - Create database: `pscale database create {name} --region {region}`
 - Create branch: `pscale branch create {db} {branch}`
 - Deploy request: `pscale deploy-request create {db} {branch}`
@@ -144,7 +144,7 @@ This reference documents what Claude CAN and SHOULD automate during plan executi
 ### GitHub
 **CLI:** `gh`
 
-**What Claude automates:**
+**What Opencode automates:**
 - Create repo: `gh repo create {name} --public/--private`
 - Create issues: `gh issue create --title "{title}" --body "{body}"`
 - Create PR: `gh pr create --title "{title}" --body "{body}"`
@@ -160,7 +160,7 @@ This reference documents what Claude CAN and SHOULD automate during plan executi
 ## Build Tools & Testing
 
 ### Node/npm/pnpm/bun
-**What Claude automates:**
+**What Opencode automates:**
 - Install dependencies: `npm install`, `pnpm install`, `bun install`
 - Run builds: `npm run build`
 - Run tests: `npm test`, `npm run test:e2e`
@@ -171,7 +171,7 @@ This reference documents what Claude CAN and SHOULD automate during plan executi
 ### Xcode (macOS/iOS)
 **CLI:** `xcodebuild`
 
-**What Claude automates:**
+**What Opencode automates:**
 - Build project: `xcodebuild -project App.xcodeproj -scheme App build`
 - Run tests: `xcodebuild test -project App.xcodeproj -scheme App`
 - Archive: `xcodebuild archive -project App.xcodeproj -scheme App`
@@ -202,7 +202,7 @@ This reference documents what Claude CAN and SHOULD automate during plan executi
 ### .env Files
 **Tool:** Write tool
 
-**What Claude automates:**
+**What Opencode automates:**
 - Create .env files: Use Write tool
 - Append variables: Use Edit tool
 - Read current values: Use Read tool
@@ -226,7 +226,7 @@ This reference documents what Claude CAN and SHOULD automate during plan executi
 ### Resend
 **API:** Resend API via HTTP
 
-**What Claude automates:**
+**What Opencode automates:**
 - Create API keys via dashboard API (if available) or instructions for one-time setup
 - Send emails: Resend API
 - Configure domains: Resend API
@@ -234,7 +234,7 @@ This reference documents what Claude CAN and SHOULD automate during plan executi
 ### SendGrid
 **API:** SendGrid API via HTTP
 
-**What Claude automates:**
+**What Opencode automates:**
 - Create API keys via API
 - Send emails: SendGrid API
 - Configure webhooks: SendGrid API
@@ -243,9 +243,9 @@ This reference documents what Claude CAN and SHOULD automate during plan executi
 
 ## Authentication Gates
 
-**Critical distinction:** When Claude tries to use a CLI/API and gets an authentication error, this is NOT a failure - it's a gate that requires human input to unblock automation.
+**Critical distinction:** When Opencode tries to use a CLI/API and gets an authentication error, this is NOT a failure - it's a gate that requires human input to unblock automation.
 
-**Pattern: Claude encounters auth error → creates checkpoint → you authenticate → Claude continues**
+**Pattern: Opencode encounters auth error → creates checkpoint → you authenticate → Opencode continues**
 
 ### Example: Vercel CLI Not Authenticated
 
@@ -270,7 +270,7 @@ This reference documents what Claude CAN and SHOULD automate during plan executi
   <resume-signal>Type "done" when authenticated</resume-signal>
 </task>
 
-<!-- After authentication, Claude retries automatically -->
+<!-- After authentication, Opencode retries automatically -->
 
 <task type="auto">
   <name>Retry Vercel deployment</name>
@@ -301,7 +301,7 @@ This reference documents what Claude CAN and SHOULD automate during plan executi
   <resume-signal>Type "done" or paste the key</resume-signal>
 </task>
 
-<!-- After key provided, Claude writes to .env and continues -->
+<!-- After key provided, Opencode writes to .env and continues -->
 
 <task type="auto">
   <name>Save Stripe key and create webhook</name>
@@ -378,7 +378,7 @@ This reference documents what Claude CAN and SHOULD automate during plan executi
 
 ### Authentication Gate Protocol
 
-**When Claude encounters authentication error during execution:**
+**When Opencode encounters authentication error during execution:**
 
 1. **Recognize it's not a failure** - Missing auth is expected, not a bug
 2. **Stop current task** - Don't retry repeatedly
@@ -389,11 +389,11 @@ This reference documents what Claude CAN and SHOULD automate during plan executi
 7. **Continue normally** - One auth gate doesn't break the flow
 
 **Key difference from pre-planned checkpoints:**
-- Pre-planned: "I need you to do X" (wrong - Claude should automate)
+- Pre-planned: "I need you to do X" (wrong - Opencode should automate)
 - Auth gate: "I tried to automate X but need credentials to continue" (correct - unblocks automation)
 
 **This preserves agentic flow:**
-- Claude tries automation first
+- Opencode tries automation first
 - Only asks for help when blocked by credentials
 - Continues automating after unblocked
 - You never manually deploy/create resources - just provide keys
@@ -422,11 +422,11 @@ This reference documents what Claude CAN and SHOULD automate during plan executi
 </task>
 ```
 
-**Key difference:** Claude does EVERYTHING possible first (account creation, API requests), only asks human for the one thing with no automation path.
+**Key difference:** Opencode does EVERYTHING possible first (account creation, API requests), only asks human for the one thing with no automation path.
 
-## Quick Reference: "Can Claude automate this?"
+## Quick Reference: "Can Opencode automate this?"
 
-| Action | CLI/API? | Claude does it? |
+| Action | CLI/API? | Opencode does it? |
 |--------|----------|-----------------|
 | Deploy to Vercel | ✅ `vercel` | YES |
 | Create Stripe webhook | ✅ Stripe API | YES |
@@ -440,7 +440,7 @@ This reference documents what Claude CAN and SHOULD automate during plan executi
 | Click email verification link | ❌ No API | NO |
 | Enter credit card with 3DS | ❌ No API | NO |
 
-**Default answer: YES.** Unless explicitly in the "NO" category, Claude automates it.
+**Default answer: YES.** Unless explicitly in the "NO" category, Opencode automates it.
 
 ## Decision Tree
 
@@ -468,7 +468,7 @@ This reference documents what Claude CAN and SHOULD automate during plan executi
          ▼
     ┌────────────────────────────────────────┐
     │ task type="auto"                       │
-    │ Claude automates via CLI/API           │
+    │ Opencode automates via CLI/API           │
     └────────────┬───────────────────────────┘
                  │
                  ▼
@@ -480,10 +480,10 @@ This reference documents what Claude CAN and SHOULD automate during plan executi
 
 ## Summary
 
-**The rule:** If Claude CAN do it, Claude MUST do it.
+**The rule:** If Opencode CAN do it, Opencode MUST do it.
 
 Checkpoints are for:
-- **Verification** - Confirming Claude's automated work looks/behaves correctly
+- **Verification** - Confirming Opencode's automated work looks/behaves correctly
 - **Decisions** - Choosing between valid approaches
 - **True blockers** - Rare actions with literally no API/CLI (email links, 2FA)
 
@@ -494,4 +494,4 @@ Checkpoints are NOT for:
 - Writing files (use Write tool)
 - Anything with automation available
 
-**This keeps the agentic coding workflow intact - Claude does the work, you verify results.**
+**This keeps the agentic coding workflow intact - Opencode does the work, you verify results.**

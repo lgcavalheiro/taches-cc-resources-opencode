@@ -65,7 +65,7 @@ EOF
 cat > README.md << EOF
 # $SERVER_NAME
 
-MCP server for Claude.
+MCP server for Opencode.
 
 ## Setup
 
@@ -86,15 +86,13 @@ export API_KEY="your-key-here"
 ## Install in Opencode
 
 \`\`\`bash
-claude mcp add --transport stdio $SERVER_NAME \\
-  --env API_KEY='\${API_KEY}' \\
-  -- $(which node) $PROJECT_DIR/build/index.js
+opencode mcp add
 \`\`\`
 
 ## Logs
 
 \`\`\`bash
-tail -f ~/Library/Logs/Claude/mcp-server-$SERVER_NAME.log
+tail -f ~/Library/Logs/Opencode/mcp-server-$SERVER_NAME.log
 \`\`\`
 EOF
 

@@ -10,11 +10,11 @@ Skills are modular, filesystem-based capabilities that provide domain expertise 
 
 ### 1. Skills Are Prompts
 
-All prompting best practices apply. Be clear, be direct, use XML structure. Assume Claude is smart - only add context Claude doesn't have.
+All prompting best practices apply. Be clear, be direct, use XML structure. Assume Opencode is smart - only add context Opencode doesn't have.
 
 ### 2. SKILL.md Is Always Loaded
 
-When a skill is invoked, Claude reads SKILL.md. Use this guarantee:
+When a skill is invoked, Opencode reads SKILL.md. Use this guarantee:
 - Essential principles go in SKILL.md (can't be skipped)
 - Workflow-specific content goes in workflows/
 - Reusable knowledge goes in references/
@@ -33,10 +33,10 @@ skill-name/
 SKILL.md asks "what do you want to do?" → routes to workflow → workflow specifies which references to read.
 
 **When to use each folder:**
-- **workflows/** - Multi-step procedures Claude follows
-- **references/** - Domain knowledge Claude reads for context
-- **templates/** - Consistent output structures Claude copies and fills (plans, specs, configs)
-- **scripts/** - Executable code Claude runs as-is (deploy, setup, API calls)
+- **workflows/** - Multi-step procedures Opencode follows
+- **references/** - Domain knowledge Opencode reads for context
+- **templates/** - Consistent output structures Opencode copies and fills (plans, specs, configs)
+- **scripts/** - Executable code Opencode runs as-is (deploy, setup, API calls)
 
 ### 4. Pure XML Structure
 
@@ -126,11 +126,11 @@ references/:
   Domain knowledge, patterns, examples
 
 templates/:
-  Output structures Claude copies and fills
+  Output structures Opencode copies and fills
   (plans, specs, configs, documents)
 
 scripts/:
-  Executable code Claude runs as-is
+  Executable code Opencode runs as-is
   (deploy, setup, API calls, data processing)
 ```
 </quick_reference>

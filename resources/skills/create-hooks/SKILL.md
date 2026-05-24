@@ -6,28 +6,28 @@ description: Expert guidance for creating, configuring, and using Opencode hooks
 <objective>
 Hooks are event-driven automation for Opencode that execute shell commands or LLM prompts in response to tool usage, session events, and user interactions. This skill teaches you how to create, configure, and debug hooks for validating commands, automating workflows, injecting context, and implementing custom completion criteria.
 
-Hooks provide programmatic control over Claude's behavior without modifying core code, enabling project-specific automation, safety checks, and workflow customization.
+Hooks provide programmatic control over Opencode's behavior without modifying core code, enabling project-specific automation, safety checks, and workflow customization.
 </objective>
 
 <context>
-Hooks are shell commands or LLM-evaluated prompts that execute in response to Opencode events. They operate within an event hierarchy: events (PreToolUse, PostToolUse, Stop, etc.) trigger matchers (tool patterns) which fire hooks (commands or prompts). Hooks can block actions, modify tool inputs, inject context, or simply observe and log Claude's operations.
+Hooks are shell commands or LLM-evaluated prompts that execute in response to Opencode events. They operate within an event hierarchy: events (PreToolUse, PostToolUse, Stop, etc.) trigger matchers (tool patterns) which fire hooks (commands or prompts). Hooks can block actions, modify tool inputs, inject context, or simply observe and log Opencode's operations.
 </context>
 
 <quick_start>
 <workflow>
 1. Create hooks config file:
-   - Project: `.claude/hooks.json`
+   - Project: `.opencode/hooks.json`
    - User: `~/.config/opencode/hooks.json`
 2. Choose hook event (when it fires)
 3. Choose hook type (command or prompt)
 4. Configure matcher (which tools trigger it)
-5. Test with `claude --debug`
+5. Test with `opencode debug`
 </workflow>
 
 <example>
 **Log all bash commands**:
 
-`.claude/hooks.json`:
+`.opencode/hooks.json`:
 ```json
 {
   "hooks": {
@@ -59,12 +59,12 @@ This hook:
 | **PreToolUse** | Before tool execution | Yes |
 | **PostToolUse** | After tool execution | No |
 | **UserPromptSubmit** | User submits a prompt | Yes |
-| **Stop** | Claude attempts to stop | Yes |
+| **Stop** | Opencode attempts to stop | Yes |
 | **SubagentStop** | Subagent attempts to stop | Yes |
 | **SessionStart** | Session begins | No |
 | **SessionEnd** | Session ends | No |
 | **PreCompact** | Before context compaction | Yes |
-| **Notification** | Claude needs input | No |
+| **Notification** | Opencode needs input | No |
 
 Blocking hooks can return `"decision": "block"` to prevent the action. See [references/hook-types.md](references/hook-types.md) for detailed use cases.
 </hook_types>
@@ -157,14 +157,14 @@ Available in hook commands:
 
 | Variable | Value |
 |----------|-------|
-| `$CLAUDE_PROJECT_DIR` | Project root directory |
-| `${CLAUDE_PLUGIN_ROOT}` | Plugin directory (plugin hooks only) |
+| `$OPENCODE_PROJECT_DIR` | Project root directory |
+| `${OPENCODE_PLUGIN_ROOT}` | Plugin directory (plugin hooks only) |
 | `$ARGUMENTS` | Hook input JSON (prompt hooks only) |
 
 **Example**:
 ```json
 {
-  "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/validate.sh"
+  "command": "$OPENCODE_PROJECT_DIR/.opencode/hooks/validate.sh"
 }
 ```
 </environment_variables>
@@ -179,7 +179,7 @@ Available in hook commands:
         "hooks": [
           {
             "type": "command",
-            "command": "osascript -e 'display notification \"Claude needs input\" with title \"Opencode\"'"
+  "command": "osascript -e 'display notification \"Opencode needs input\" with title \"Opencode\"'"
           }
         ]
       }
@@ -217,7 +217,7 @@ Available in hook commands:
         "hooks": [
           {
             "type": "command",
-            "command": "prettier --write $CLAUDE_PROJECT_DIR",
+            "command": "prettier --write $OPENCODE_PROJECT_DIR",
             "timeout": 10000
           }
         ]
@@ -249,7 +249,7 @@ Available in hook commands:
 <debugging>
 Always test hooks with the debug flag:
 ```bash
-claude --debug
+opencode debug
 ```
 
 This shows which hooks matched, command execution, and output. See [references/troubleshooting.md](references/troubleshooting.md) for common issues and solutions.
@@ -303,29 +303,29 @@ This shows which hooks matched, command execution, and output. See [references/t
 - **Infinite loop prevention**: Check `stop_hook_active` flag in Stop hooks to prevent recursive triggering
 - **Timeout configuration**: Set reasonable timeouts (default: 60s) to prevent hanging
 - **Permission validation**: Ensure hook scripts have executable permissions (`chmod +x`)
-- **Path safety**: Use absolute paths with `$CLAUDE_PROJECT_DIR` to avoid path injection
+- **Path safety**: Use absolute paths with `$OPENCODE_PROJECT_DIR` to avoid path injection
 - **JSON validation**: Validate hook config with `jq` before use to catch syntax errors
 - **Selective blocking**: Be conservative with blocking hooks to avoid workflow disruption
 
 **Testing protocol**:
 ```bash
 # Always test with debug flag first
-claude --debug
+opencode debug
 
 # Validate JSON config
-jq . .claude/hooks.json
+jq . .opencode/hooks.json
 ```
 </security_checklist>
 
 <success_criteria>
 A working hook configuration has:
 
-- Valid JSON in `.claude/hooks.json` (validated with `jq`)
+- Valid JSON in `.opencode/hooks.json` (validated with `jq`)
 - Appropriate hook event selected for the use case
 - Correct matcher pattern that matches target tools
 - Command or prompt that executes without errors
 - Proper output schema (decision/reason for blocking hooks)
-- Tested with `--debug` flag showing expected behavior
+- Tested with `debug` command showing expected behavior
 - No infinite loops in Stop hooks (checks `stop_hook_active` flag)
 - Reasonable timeout set (especially for external commands)
 - Executable permissions on script files if using file paths

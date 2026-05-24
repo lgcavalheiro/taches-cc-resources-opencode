@@ -11,7 +11,7 @@ Main orchestration script that runs the loop.
 **Minimal implementation:**
 ```bash
 #!/bin/bash
-while :; do cat PROMPT.md | claude ; done
+while :; do opencode run < PROMPT.md; done
 ```
 
 **Production implementation:**
@@ -23,7 +23,7 @@ while :; do cat PROMPT.md | claude ; done
 Located at project root.
 
 ### PROMPT_plan.md
-Instructions for planning mode. Tells Claude to:
+Instructions for planning mode. Tells Opencode to:
 - Study specs and existing code
 - Perform gap analysis
 - Generate/update `IMPLEMENTATION_PLAN.md`
@@ -32,7 +32,7 @@ Instructions for planning mode. Tells Claude to:
 Located at project root.
 
 ### PROMPT_build.md
-Instructions for building mode. Tells Claude to:
+Instructions for building mode. Tells Opencode to:
 - Read the implementation plan
 - Select most important task
 - Search existing code

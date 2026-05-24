@@ -141,7 +141,7 @@ Flag these structural violations:
 <pattern name="markdown_headings_in_body" severity="critical">
 Using markdown headings (##, ###) for structure instead of XML tags.
 
-**Why this matters**: Subagent.md files are consumed only by Claude, never read by humans. Pure XML structure provides ~25% better token efficiency and consistent parsing.
+**Why this matters**: Subagent.md files are consumed only by Opencode, never read by humans. Pure XML structure provides ~25% better token efficiency and consistent parsing.
 
 **How to detect**: Search file for `##` or `###` symbols outside code blocks/examples.
 
@@ -151,7 +151,7 @@ Using markdown headings (##, ###) for structure instead of XML tags.
 <pattern name="unclosed_xml_tags" severity="critical">
 XML tags not properly closed or mismatched nesting.
 
-**Why this matters**: Breaks parsing, creates ambiguous boundaries, harder for Claude to parse structure.
+**Why this matters**: Breaks parsing, creates ambiguous boundaries, harder for Opencode to parse structure.
 
 **How to detect**: Count opening/closing tags, verify each `<tag>` has `</tag>`.
 
