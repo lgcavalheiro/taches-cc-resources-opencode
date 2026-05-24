@@ -115,8 +115,8 @@ When Ralph struggles repeatedly, update the environment (specs, AGENTS.md, promp
 claude setup-token
 
 # Save it
-echo "sk-ant-oat01-YOUR-TOKEN" > ~/.claude-oauth-token
-chmod 600 ~/.claude-oauth-token
+echo "sk-ant-oat01-YOUR-TOKEN" > ~/.config/opencode/opencode-oauth-token
+chmod 600 ~/.config/opencode/opencode-oauth-token
 ```
 
 The loop scripts automatically load this token.

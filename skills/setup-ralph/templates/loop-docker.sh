@@ -60,8 +60,8 @@ if [ -z "$CLAUDE_CODE_OAUTH_TOKEN" ]; then
     CLAUDE_CODE_OAUTH_TOKEN=$(cat "$TOKEN_FILE")
   else
     echo "Error: No OAuth token found"
-    echo "Run 'claude setup-token' and save to ~/.claude-oauth-token"
-    echo "Then: chmod 600 ~/.claude-oauth-token"
+    echo "Run 'claude setup-token' and save to ~/.config/opencode/opencode-oauth-token"
+    echo "Then: chmod 600 ~/.config/opencode/opencode-oauth-token"
     exit 1
   fi
 fi

@@ -10,7 +10,7 @@ Create effective slash commands for Claude Code that enable users to trigger reu
 <quick_start>
 
 <workflow>
-1. Create `.claude/commands/` directory (project) or use `~/.claude/commands/` (personal)
+1. Create `.config/opencode/commands/` directory (project) or use `~/.config/opencode/commands/` (personal)
 2. Create `command-name.md` file
 3. Add YAML frontmatter (at minimum: `description`)
 4. Write command prompt
@@ -18,7 +18,7 @@ Create effective slash commands for Claude Code that enable users to trigger reu
 </workflow>
 
 <example>
-**File**: `.claude/commands/optimize.md`
+**File**: `.config/opencode/commands/optimize.md`
 
 ```markdown
 ---
@@ -240,11 +240,11 @@ Review PR #$1 with priority $2 and assign to $3.
 
 <file_structure>
 
-**Project commands**: `.claude/commands/`
+**Project commands**: `.config/opencode/commands/`
 - Shared with team via version control
 - Shows `(project)` in `/help` list
 
-**Personal commands**: `~/.claude/commands/`
+**Personal commands**: `~/.config/opencode/commands/`
 - Available across all your projects
 - Shows `(user)` in `/help` list
 
@@ -282,7 +282,7 @@ If omitted: All tools available
 <arguments>
 <all_arguments_string>
 
-**Command file**: `.claude/commands/fix-issue.md`
+**Command file**: `.config/opencode/commands/fix-issue.md`
 ```markdown
 ---
 description: Fix issue following coding standards
@@ -298,7 +298,7 @@ Fix issue #$ARGUMENTS following our coding standards
 
 <positional_arguments_syntax>
 
-**Command file**: `.claude/commands/review-pr.md`
+**Command file**: `.config/opencode/commands/review-pr.md`
 ```markdown
 ---
 description: Review PR with priority and assignee
@@ -593,8 +593,8 @@ See [references/patterns.md](references/patterns.md) for more examples.
    - Don't under-specify complex commands
 
 6. **Save the file**:
-   - Project: `.claude/commands/command-name.md`
-   - Personal: `~/.claude/commands/command-name.md`
+   - Project: `.config/opencode/commands/command-name.md`
+   - Personal: `~/.config/opencode/commands/command-name.md`
 </generation_protocol>
 
 <success_criteria>

@@ -13,7 +13,7 @@ Subagents enable delegation of complex tasks to specialized agents that operate 
 <workflow>
 1. Run `/agents` command
 2. Select "Create New Agent"
-3. Choose project-level (`.claude/agents/`) or user-level (`~/.claude/agents/`)
+3. Choose project-level (`.claude/agents/`) or user-level (`~/.config/opencode/agents/`)
 4. Define the subagent:
    - **name**: lowercase-with-hyphens
    - **description**: When should this subagent be used?
@@ -53,7 +53,7 @@ Provide specific, actionable feedback with file:line references.
 | Type | Location | Scope | Priority |
 |------|----------|-------|----------|
 | **Project** | `.claude/agents/` | Current project only | Highest |
-| **User** | `~/.claude/agents/` | All projects | Lower |
+| **User** | `~/.config/opencode/agents/` | All projects | Lower |
 | **Plugin** | Plugin's `agents/` dir | All projects | Lowest |
 
 Project-level subagents override user-level when names conflict.
@@ -240,7 +240,7 @@ Run `/agents` for an interactive interface to:
 <manual_editing>
 You can also edit subagent files directly:
 - Project: `.claude/agents/subagent-name.md`
-- User: `~/.claude/agents/subagent-name.md`
+- User: `~/.config/opencode/agents/subagent-name.md`
 </manual_editing>
 </management>
 

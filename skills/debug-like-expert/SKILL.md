@@ -26,20 +26,20 @@ find . -maxdepth 2 -type f 2>/dev/null | grep -E '\.(py|js|jsx|ts|tsx|rs|swift|c
 
 # Scan for available domain expertise
 echo "EXPERTISE_SKILLS:"
-ls ~/.claude/skills/expertise/ 2>/dev/null | head -5
+ls ~/.config/opencode/skills/expertise/ 2>/dev/null | head -5
 ```
 
 **Present findings before starting investigation.**
 </context_scan>
 
 <domain_expertise>
-**Domain-specific expertise lives in `~/.claude/skills/expertise/`**
+**Domain-specific expertise lives in `~/.config/opencode/skills/expertise/`**
 
 Domain skills contain comprehensive knowledge including debugging, testing, performance, and common pitfalls. Before investigation, determine if domain expertise should be loaded.
 
 <scan_domains>
 ```bash
-ls ~/.claude/skills/expertise/ 2>/dev/null
+ls ~/.config/opencode/skills/expertise/ 2>/dev/null
 ```
 
 This reveals available domain expertise (e.g., macos-apps, iphone-apps, python-games, unity-games).
@@ -92,7 +92,7 @@ Select:
 When domain selected, READ all references from that skill:
 
 ```bash
-cat ~/.claude/skills/expertise/[domain]/references/*.md 2>/dev/null
+cat ~/.config/opencode/skills/expertise/[domain]/references/*.md 2>/dev/null
 ```
 
 This loads comprehensive domain knowledge BEFORE investigation:

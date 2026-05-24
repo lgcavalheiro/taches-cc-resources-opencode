@@ -24,14 +24,14 @@ Look for:
 
 Hooks must be in:
 - Project: `.claude/hooks.json`
-- User: `~/.claude/hooks.json`
+- User: `~/.config/opencode/hooks.json`
 - Plugin: `{plugin}/hooks.json`
 
 Verify:
 ```bash
 cat .claude/hooks.json
 # or
-cat ~/.claude/hooks.json
+cat ~/.config/opencode/hooks.json
 ```
 
 **3. Validate JSON syntax**
@@ -86,7 +86,7 @@ node -e "console.log(/bash/.test('Bash'))"  # false
 
 ### Solutions
 
-**Missing hook file**: Create `.claude/hooks.json` or `~/.claude/hooks.json`
+**Missing hook file**: Create `.claude/hooks.json` or `~/.config/opencode/hooks.json`
 
 **Invalid JSON**: Use `jq` to validate and format:
 ```bash

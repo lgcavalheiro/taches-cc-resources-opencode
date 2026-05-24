@@ -50,7 +50,7 @@ env | grep -E "^[A-Z_]+=" | cut -d= -f1 | sort
 <solution>
 Check Claude Code config:
 ```bash
-cat ~/.claude/settings.json | jq '.mcpServers'
+cat ~/.config/opencode/settings.json | jq '.mcpServers'
 ```
 Re-add if missing using `claude mcp add` command.
 </solution>

@@ -137,7 +137,7 @@ which uv && which node && which python
 </quick_reference>
 
 <troubleshooting_quick>
-**Server not appearing:** Check `claude mcp list`, verify config in `~/.claude/settings.json`
+**Server not appearing:** Check `claude mcp list`, verify config in `~/.config/opencode/settings.json`
 
 **"command not found":** Use absolute paths from `which uv` / `which node`
 

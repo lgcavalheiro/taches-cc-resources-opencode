@@ -119,7 +119,7 @@ Specific. Executable. Framework-appropriate.
 **Structure of domain skills:**
 
 ```
-~/.claude/skills/expertise/[domain]/
+~/.config/opencode/skills/expertise/[domain]/
 ├── SKILL.md              # Router + essential principles
 ├── workflows/            # build-new-app, add-feature, debug-app, etc.
 └── references/           # Exhaustive domain knowledge (often 10k+ lines)
@@ -141,7 +141,7 @@ Specific. Executable. Framework-appropriate.
 **How it works:**
 
 1. Skill infers domain from your request ("build a macOS app" → build-macos-apps)
-2. Before creating PLAN.md, reads all `~/.claude/skills/build/macos-apps/references/*.md`
+2. Before creating PLAN.md, reads all `~/.config/opencode/skills/build/macos-apps/references/*.md`
 3. Uses that exhaustive knowledge to write framework-specific tasks
 4. Result: Plans that match your actual tech stack with all the details
 

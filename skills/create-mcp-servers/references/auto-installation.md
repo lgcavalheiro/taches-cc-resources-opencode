@@ -76,7 +76,7 @@ claude mcp add --transport stdio meta-ads \
   -- uv --directory ~/Developer/mcp/meta-ads-mcp run python -m src.server
 ```
 
-**Note:** When using `claude mcp add`, you pass actual values. Claude Code stores them securely in `~/.claude/.claude.json` and references them correctly.
+**Note:** When using `claude mcp add`, you pass actual values. Claude Code stores them securely in `~/.config/opencode/opencode.json` and references them correctly.
 
 ### Step 3: Configure Claude Desktop
 
@@ -309,7 +309,7 @@ claude mcp list
 
 # Try removing and reinstalling
 claude mcp remove <server-name>
-~/.claude/scripts/install-mcp.sh ...
+~/.config/opencode/scripts/install-mcp.sh ...
 ```
 
 **"Server not appearing in Claude Desktop"**
@@ -318,7 +318,7 @@ claude mcp remove <server-name>
 - Restart Claude Desktop
 
 **"Environment variable not found"**
-- Check `~/.claude/.env` exists
+- Check `~/.config/opencode/.env` exists
 - Verify variable names match exactly
 - Ensure no extra spaces: `KEY=value` not `KEY = value`
 

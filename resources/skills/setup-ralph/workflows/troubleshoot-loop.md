@@ -146,14 +146,14 @@ If not found: `npm install -g @anthropic-ai/claude-code`
 **Check OAuth token (for headless mode):**
 ```bash
 # Verify token exists
-cat ~/.claude-oauth-token
+cat ~/.config/opencode/opencode-oauth-token
 
 # If missing, run:
 claude setup-token
-# Save to ~/.claude-oauth-token
+# Save to ~/.config/opencode/opencode-oauth-token
 
 # Set permissions
-chmod 600 ~/.claude-oauth-token
+chmod 600 ~/.config/opencode/opencode-oauth-token
 ```
 
 **Check plan file for build mode:**

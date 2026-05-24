@@ -24,7 +24,7 @@ All hooks receive these fields:
 ```json
 {
   "session_id": "abc123",
-  "transcript_path": "~/.claude/projects/.../session.jsonl",
+  "transcript_path": "~/.config/opencode/projects/.../session.jsonl",
   "cwd": "/Users/username/project",
   "permission_mode": "default",
   "hook_event_name": "PreToolUse",
@@ -69,7 +69,7 @@ All hooks receive these fields:
 ```json
 {
   "session_id": "abc123",
-  "transcript_path": "~/.claude/projects/.../session.jsonl",
+  "transcript_path": "~/.config/opencode/projects/.../session.jsonl",
   "cwd": "/Users/username/project",
   "permission_mode": "default",
   "hook_event_name": "PostToolUse",
@@ -102,7 +102,7 @@ All hooks receive these fields:
 ```json
 {
   "session_id": "abc123",
-  "transcript_path": "~/.claude/projects/.../session.jsonl",
+  "transcript_path": "~/.config/opencode/projects/.../session.jsonl",
   "cwd": "/Users/username/project",
   "permission_mode": "default",
   "hook_event_name": "UserPromptSubmit",
@@ -132,7 +132,7 @@ All hooks receive these fields:
 ```json
 {
   "session_id": "abc123",
-  "transcript_path": "~/.claude/projects/.../session.jsonl",
+  "transcript_path": "~/.config/opencode/projects/.../session.jsonl",
   "cwd": "/Users/username/project",
   "permission_mode": "default",
   "hook_event_name": "Stop",
@@ -185,7 +185,7 @@ if (input.stop_hook_active) {
 ```json
 {
   "session_id": "abc123",
-  "transcript_path": "~/.claude/projects/.../session.jsonl",
+  "transcript_path": "~/.config/opencode/projects/.../session.jsonl",
   "cwd": "/Users/username/project",
   "permission_mode": "default",
   "hook_event_name": "SessionStart",
@@ -215,7 +215,7 @@ if (input.stop_hook_active) {
 ```json
 {
   "session_id": "abc123",
-  "transcript_path": "~/.claude/projects/.../session.jsonl",
+  "transcript_path": "~/.config/opencode/projects/.../session.jsonl",
   "cwd": "/Users/username/project",
   "permission_mode": "default",
   "hook_event_name": "SessionEnd",
@@ -235,7 +235,7 @@ if (input.stop_hook_active) {
 ```json
 {
   "session_id": "abc123",
-  "transcript_path": "~/.claude/projects/.../session.jsonl",
+  "transcript_path": "~/.config/opencode/projects/.../session.jsonl",
   "cwd": "/Users/username/project",
   "permission_mode": "default",
   "hook_event_name": "PreCompact",
@@ -266,7 +266,7 @@ if (input.stop_hook_active) {
 ```json
 {
   "session_id": "abc123",
-  "transcript_path": "~/.claude/projects/.../session.jsonl",
+  "transcript_path": "~/.config/opencode/projects/.../session.jsonl",
   "cwd": "/Users/username/project",
   "permission_mode": "default",
   "hook_event_name": "Notification"

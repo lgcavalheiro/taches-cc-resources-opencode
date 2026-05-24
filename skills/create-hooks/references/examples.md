@@ -72,7 +72,7 @@ Real-world hook configurations ready to use.
         "hooks": [
           {
             "type": "command",
-            "command": "jq -r '\"[\" + (.timestamp // now | todate) + \"] \" + .tool_input.command + \" - \" + (.tool_input.description // \"No description\")' >> ~/.claude/bash-log.txt"
+            "command": "jq -r '\"[\" + (.timestamp // now | todate) + \"] \" + .tool_input.command + \" - \" + (.tool_input.description // \"No description\")' >> ~/.config/opencode/bash-log.txt"
           }
         ]
       }
@@ -91,7 +91,7 @@ Real-world hook configurations ready to use.
         "hooks": [
           {
             "type": "command",
-            "command": "jq -r '\"[\" + (now | todate) + \"] \" + .tool_name + \": \" + .tool_input.file_path' >> ~/.claude/file-operations.log"
+            "command": "jq -r '\"[\" + (now | todate) + \"] \" + .tool_name + \": \" + .tool_input.file_path' >> ~/.config/opencode/file-operations.log"
           }
         ]
       }
@@ -110,7 +110,7 @@ Real-world hook configurations ready to use.
         "hooks": [
           {
             "type": "command",
-            "command": "jq '. + {timestamp: now}' >> ~/.claude/mcp-audit.jsonl"
+            "command": "jq '. + {timestamp: now}' >> ~/.config/opencode/mcp-audit.jsonl"
           }
         ]
       }
@@ -522,7 +522,7 @@ echo "Session archived to $archive_dir"
         "hooks": [
           {
             "type": "command",
-            "command": "jq '. + {ended_at: now}' >> ~/.claude/session-stats.jsonl"
+            "command": "jq '. + {ended_at: now}' >> ~/.config/opencode/session-stats.jsonl"
           }
         ]
       }

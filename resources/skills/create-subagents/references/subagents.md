@@ -38,7 +38,7 @@ Step-by-step process for consistency.
 | Type | Location | Scope | Priority |
 |------|----------|-------|----------|
 | **Project** | `.claude/agents/` | Current project only | Highest |
-| **User** | `~/.claude/agents/` | All projects | Lower |
+| **User** | `~/.config/opencode/agents/` | All projects | Lower |
 | **CLI** | `--agents` flag | Current session | Medium |
 | **Plugin** | Plugin's `agents/` dir | All projects | Lowest |
 
@@ -214,7 +214,7 @@ Users can explicitly request a subagent:
 <direct_file_management>
 **Alternative**: Edit subagent files directly:
 - Project: `.claude/agents/subagent-name.md`
-- User: `~/.claude/agents/subagent-name.md`
+- User: `~/.config/opencode/agents/subagent-name.md`
 
 Follow the file format specified above (YAML frontmatter + system prompt).
 </direct_file_management>

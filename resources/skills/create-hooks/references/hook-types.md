@@ -12,7 +12,7 @@ Complete reference for all Claude Code hook events.
 ```json
 {
   "session_id": "abc123",
-  "transcript_path": "~/.claude/projects/.../session.jsonl",
+  "transcript_path": "~/.config/opencode/projects/.../session.jsonl",
   "cwd": "/current/working/directory",
   "permission_mode": "default",
   "hook_event_name": "PreToolUse",
@@ -75,7 +75,7 @@ Complete reference for all Claude Code hook events.
 ```json
 {
   "session_id": "abc123",
-  "transcript_path": "~/.claude/projects/.../session.jsonl",
+  "transcript_path": "~/.config/opencode/projects/.../session.jsonl",
   "cwd": "/current/working/directory",
   "permission_mode": "default",
   "hook_event_name": "PostToolUse",
@@ -135,7 +135,7 @@ Complete reference for all Claude Code hook events.
 ```json
 {
   "session_id": "abc123",
-  "transcript_path": "~/.claude/projects/.../session.jsonl",
+  "transcript_path": "~/.config/opencode/projects/.../session.jsonl",
   "cwd": "/current/working/directory",
   "permission_mode": "default",
   "hook_event_name": "UserPromptSubmit",
@@ -189,7 +189,7 @@ Complete reference for all Claude Code hook events.
 ```json
 {
   "session_id": "abc123",
-  "transcript_path": "~/.claude/projects/.../session.jsonl",
+  "transcript_path": "~/.config/opencode/projects/.../session.jsonl",
   "cwd": "/current/working/directory",
   "permission_mode": "default",
   "hook_event_name": "Stop",
@@ -246,7 +246,7 @@ Complete reference for all Claude Code hook events.
 ```json
 {
   "session_id": "abc123",
-  "transcript_path": "~/.claude/projects/.../session.jsonl",
+  "transcript_path": "~/.config/opencode/projects/.../session.jsonl",
   "cwd": "/current/working/directory",
   "permission_mode": "default",
   "hook_event_name": "SubagentStop",
@@ -292,7 +292,7 @@ Complete reference for all Claude Code hook events.
 ```json
 {
   "session_id": "abc123",
-  "transcript_path": "~/.claude/projects/.../session.jsonl",
+  "transcript_path": "~/.config/opencode/projects/.../session.jsonl",
   "cwd": "/current/working/directory",
   "permission_mode": "default",
   "hook_event_name": "SessionStart",
@@ -347,7 +347,7 @@ Complete reference for all Claude Code hook events.
 ```json
 {
   "session_id": "abc123",
-  "transcript_path": "~/.claude/projects/.../session.jsonl",
+  "transcript_path": "~/.config/opencode/projects/.../session.jsonl",
   "cwd": "/current/working/directory",
   "permission_mode": "default",
   "hook_event_name": "SessionEnd",
@@ -394,7 +394,7 @@ Complete reference for all Claude Code hook events.
 ```json
 {
   "session_id": "abc123",
-  "transcript_path": "~/.claude/projects/.../session.jsonl",
+  "transcript_path": "~/.config/opencode/projects/.../session.jsonl",
   "cwd": "/current/working/directory",
   "permission_mode": "default",
   "hook_event_name": "PreCompact",
@@ -429,7 +429,7 @@ Complete reference for all Claude Code hook events.
 ```json
 {
   "session_id": "abc123",
-  "transcript_path": "~/.claude/projects/.../session.jsonl",
+  "transcript_path": "~/.config/opencode/projects/.../session.jsonl",
   "cwd": "/current/working/directory",
   "permission_mode": "default",
   "hook_event_name": "Notification"

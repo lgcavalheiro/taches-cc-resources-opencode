@@ -68,8 +68,8 @@ fi
 
 if [ -z "$CLAUDE_CODE_OAUTH_TOKEN" ]; then
   echo "⚠️  Warning: No OAuth token found. Headless mode may fail."
-  echo "   Run 'claude setup-token' and save to ~/.claude-oauth-token"
-  echo "   Then: chmod 600 ~/.claude-oauth-token"
+  echo "   Run 'claude setup-token' and save to ~/.config/opencode/opencode-oauth-token"
+  echo "   Then: chmod 600 ~/.config/opencode/opencode-oauth-token"
   echo ""
 fi
 

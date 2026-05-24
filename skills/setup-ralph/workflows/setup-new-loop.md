@@ -72,8 +72,8 @@ Ask the user 2-4 questions using AskUserQuestion:
 
 If Docker mode selected, check for OAuth token:
 1. Check `$CLAUDE_CODE_OAUTH_TOKEN` env var
-2. Check `~/.claude-oauth-token` file
-3. If neither found, instruct user: "Run `claude setup-token` and save to ~/.claude-oauth-token"
+2. Check `~/.config/opencode/opencode-oauth-token` file
+3. If neither found, instruct user: "Run `claude setup-token` and save to ~/.config/opencode/opencode-oauth-token"
 
 ## Step 5: Create Directory Structure
 
@@ -208,7 +208,7 @@ DOCKER MODE (if enabled):
 - First run: ./loop-docker.sh --build-image
 - Then: ./loop-docker.sh plan
 - Then: ./loop-docker.sh
-- Requires: ~/.claude-oauth-token or CLAUDE_CODE_OAUTH_TOKEN env var
+- Requires: ~/.config/opencode/opencode-oauth-token or CLAUDE_CODE_OAUTH_TOKEN env var
 - Get token: claude setup-token
 
 FILES:
